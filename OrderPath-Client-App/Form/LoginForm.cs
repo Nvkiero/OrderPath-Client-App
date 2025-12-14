@@ -119,8 +119,7 @@ namespace OrderPath_Client_App
 
         private void bt_DangNhap_Click(object sender, EventArgs e)
         {
-            UIuser form = new UIuser();
-            form.Show();
+        
         }
     }
 }

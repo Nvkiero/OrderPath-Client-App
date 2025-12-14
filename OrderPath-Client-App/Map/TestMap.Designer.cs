@@ -1,6 +1,6 @@
 ﻿namespace OrderPath_Client_App
 {
-    partial class UIuser
+    partial class TestMap
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             SuspendLayout();
             // 
-            // UIuser
+            // webView21
             // 
-            AutoScaleDimensions = new SizeF(18F, 36F);
+            webView21.AllowExternalDrop = true;
+            webView21.CreationProperties = null;
+            webView21.DefaultBackgroundColor = Color.White;
+            webView21.Location = new Point(12, 12);
+            webView21.Name = "webView21";
+            webView21.Size = new Size(1364, 736);
+            webView21.TabIndex = 0;
+            webView21.ZoomFactor = 1D;
+            // 
+            // TestMap
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1484, 872);
-            Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(5, 4, 5, 4);
-            Name = "UIuser";
-            Text = "UIuser";
-            Load += UIuser_Load;
+            ClientSize = new Size(1388, 760);
+            Controls.Add(webView21);
+            Name = "TestMap";
+            Text = "TestMap";
+            Load += TestMap_Load;
+            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
     }
 }
