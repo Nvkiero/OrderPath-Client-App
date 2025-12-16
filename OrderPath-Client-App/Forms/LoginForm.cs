@@ -142,12 +142,13 @@ namespace OrderPath_Client_App
             {
                 MessageBox.Show("Đăng nhập thành công");
 
+
                 //// 🔐 LƯU TOKEN
                 //Session.AccessToken = result;
 
                 //// mở form chính
-                //new MainForm().Show();
-                //this.Hide();
+                new FormMainUsers().Show();
+                this.Hide();
             }
             else
             {

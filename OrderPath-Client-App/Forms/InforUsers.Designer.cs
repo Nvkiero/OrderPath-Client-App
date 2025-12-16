@@ -43,17 +43,20 @@
             tb_Phone = new TextBox();
             tb_age = new TextBox();
             tb_address = new TextBox();
+            bt_thayDoiThongTin = new Button();
+            bt_DoiMatKhau = new Button();
             ((System.ComponentModel.ISupportInitialize)pB_AnhDaiDien).BeginInit();
             SuspendLayout();
             // 
             // pB_AnhDaiDien
             // 
-            pB_AnhDaiDien.Location = new Point(219, 13);
-            pB_AnhDaiDien.Margin = new Padding(4, 4, 4, 4);
+            pB_AnhDaiDien.Location = new Point(321, 13);
+            pB_AnhDaiDien.Margin = new Padding(4);
             pB_AnhDaiDien.Name = "pB_AnhDaiDien";
             pB_AnhDaiDien.Size = new Size(192, 129);
             pB_AnhDaiDien.TabIndex = 0;
             pB_AnhDaiDien.TabStop = false;
+            pB_AnhDaiDien.Click += pB_AnhDaiDien_Click;
             // 
             // lb_Fullname
             // 
@@ -167,11 +170,32 @@
             tb_address.Size = new Size(293, 40);
             tb_address.TabIndex = 14;
             // 
+            // bt_thayDoiThongTin
+            // 
+            bt_thayDoiThongTin.Location = new Point(43, 43);
+            bt_thayDoiThongTin.Name = "bt_thayDoiThongTin";
+            bt_thayDoiThongTin.Size = new Size(180, 86);
+            bt_thayDoiThongTin.TabIndex = 15;
+            bt_thayDoiThongTin.Text = "Cập nhật lại thông tin";
+            bt_thayDoiThongTin.UseVisualStyleBackColor = true;
+            bt_thayDoiThongTin.Click += bt_thayDoiThongTin_Click;
+            // 
+            // bt_DoiMatKhau
+            // 
+            bt_DoiMatKhau.Location = new Point(26, 654);
+            bt_DoiMatKhau.Name = "bt_DoiMatKhau";
+            bt_DoiMatKhau.Size = new Size(197, 46);
+            bt_DoiMatKhau.TabIndex = 16;
+            bt_DoiMatKhau.Text = "Đổi mật khẩu";
+            bt_DoiMatKhau.UseVisualStyleBackColor = true;
+            // 
             // InforUsers
             // 
             AutoScaleDimensions = new SizeF(15F, 33F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(619, 722);
+            ClientSize = new Size(620, 722);
+            Controls.Add(bt_DoiMatKhau);
+            Controls.Add(bt_thayDoiThongTin);
             Controls.Add(tb_address);
             Controls.Add(tb_age);
             Controls.Add(tb_Phone);
@@ -188,7 +212,7 @@
             Controls.Add(tb_fullname);
             Controls.Add(pB_AnhDaiDien);
             Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "InforUsers";
             Text = "InforUsers";
             ((System.ComponentModel.ISupportInitialize)pB_AnhDaiDien).EndInit();
@@ -213,5 +237,7 @@
         private TextBox tb_Phone;
         private TextBox tb_age;
         private TextBox tb_address;
+        private Button bt_thayDoiThongTin;
+        private Button bt_DoiMatKhau;
     }
 }
