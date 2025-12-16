@@ -74,18 +74,8 @@ namespace OrderPath_Client_App
 
             try
             {
-                bool success = await service.RegisterUser(newUser);
-
-                if (success)
-                {
-                    MessageBox.Show("Đăng ký thành công!");
-                    LoginForm login = new LoginForm();
-                    login.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Đăng ký thất bại! Kiểm tra lại thông tin.");
-                }
+                string success = await service.RegisterUser(newUser);
+                MessageBox.Show(success);
             }
             catch (Exception ex)
             {

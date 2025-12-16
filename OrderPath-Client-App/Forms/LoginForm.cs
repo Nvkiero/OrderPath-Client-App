@@ -1,11 +1,14 @@
-﻿using System;
-using System.Reflection.Emit;
-using System.Windows.Forms;
+﻿using OrderPath_Client_App.Data;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 
 namespace OrderPath_Client_App
 {
@@ -116,10 +119,41 @@ namespace OrderPath_Client_App
             SignUpForm Dangki = new SignUpForm();
             Dangki.Show();
         }
-
-        private void bt_DangNhap_Click(object sender, EventArgs e)
+        private async void bt_DangNhap_Click(object sender, EventArgs e)
         {
-        
+            string username = tb_TenDangNhap.Text;
+            string password = tb_MatKhau.Text;
+
+            var user = new UserLogin
+            {
+                Username = username,
+                Password = password 
+            };
+
+            var service = new UserService();
+            var result = await service.LoginUser(user);
+            if (result == null)
+            {
+                MessageBox.Show("Lỗi hệ thống");
+                return;
+            }
+
+            if (result.StartsWith("ey")) // JWT token
+            {
+                MessageBox.Show("Đăng nhập thành công");
+
+                //// 🔐 LƯU TOKEN
+                //Session.AccessToken = result;
+
+                //// mở form chính
+                //new MainForm().Show();
+                //this.Hide();
+            }
+            else
+            {
+                MessageBox.Show(result); // message từ server
+            }
         }
+
     }
 }

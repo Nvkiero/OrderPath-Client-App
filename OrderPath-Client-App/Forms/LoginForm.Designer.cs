@@ -1,6 +1,6 @@
 ﻿namespace OrderPath_Client_App
 {
-    partial class LoginForm
+    partial class LoginForm : Form
     {
         /// <summary>
         ///  Required designer variable.
