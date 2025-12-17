@@ -16,5 +16,20 @@ namespace OrderPath_Client_App.Forms
         {
             InitializeComponent();
         }
+
+        private void FormUpdateInfor_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_CapNhat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb_Age_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

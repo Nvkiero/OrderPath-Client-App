@@ -125,49 +125,49 @@
             // 
             tb_fullname.Location = new Point(261, 223);
             tb_fullname.Name = "tb_fullname";
-            tb_fullname.Size = new Size(293, 40);
+            tb_fullname.Size = new Size(293, 34);
             tb_fullname.TabIndex = 8;
             // 
             // tb_NgaySinh
             // 
             tb_NgaySinh.Location = new Point(261, 283);
             tb_NgaySinh.Name = "tb_NgaySinh";
-            tb_NgaySinh.Size = new Size(293, 40);
+            tb_NgaySinh.Size = new Size(293, 34);
             tb_NgaySinh.TabIndex = 9;
             // 
             // tb_email
             // 
             tb_email.Location = new Point(261, 343);
             tb_email.Name = "tb_email";
-            tb_email.Size = new Size(293, 40);
+            tb_email.Size = new Size(293, 34);
             tb_email.TabIndex = 10;
             // 
             // tb_username
             // 
             tb_username.Location = new Point(261, 403);
             tb_username.Name = "tb_username";
-            tb_username.Size = new Size(293, 40);
+            tb_username.Size = new Size(293, 34);
             tb_username.TabIndex = 11;
             // 
             // tb_Phone
             // 
             tb_Phone.Location = new Point(261, 463);
             tb_Phone.Name = "tb_Phone";
-            tb_Phone.Size = new Size(293, 40);
+            tb_Phone.Size = new Size(293, 34);
             tb_Phone.TabIndex = 12;
             // 
             // tb_age
             // 
             tb_age.Location = new Point(261, 523);
             tb_age.Name = "tb_age";
-            tb_age.Size = new Size(293, 40);
+            tb_age.Size = new Size(293, 34);
             tb_age.TabIndex = 13;
             // 
             // tb_address
             // 
             tb_address.Location = new Point(261, 583);
             tb_address.Name = "tb_address";
-            tb_address.Size = new Size(293, 40);
+            tb_address.Size = new Size(293, 34);
             tb_address.TabIndex = 14;
             // 
             // bt_thayDoiThongTin
@@ -191,7 +191,7 @@
             // 
             // InforUsers
             // 
-            AutoScaleDimensions = new SizeF(15F, 33F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(620, 722);
             Controls.Add(bt_DoiMatKhau);
@@ -215,6 +215,7 @@
             Margin = new Padding(4);
             Name = "InforUsers";
             Text = "InforUsers";
+            Load += InforUsers_Load;
             ((System.ComponentModel.ISupportInitialize)pB_AnhDaiDien).EndInit();
             ResumeLayout(false);
             PerformLayout();
