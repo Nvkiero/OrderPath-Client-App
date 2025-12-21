@@ -18,7 +18,7 @@ namespace OrderPath_Client_App
         private int userId = 1; // TODO: lấy từ Login
         private string baseUrl = "https://localhost:5275/"; // TODO: đổi port
         private string imagePath = "";
-         
+
         public InforUsers()
         {
             InitializeComponent();
@@ -43,10 +43,10 @@ namespace OrderPath_Client_App
             FormUpdateInfor formUpdateInfor = new FormUpdateInfor();
             formUpdateInfor.Show();
         }
-        
+
         private async void InforUsers_Load(object sender, EventArgs e)
         {
-           await LoadUserInfo();
+            await LoadUserInfo();
         }
         private async Task LoadUserInfo()
         {
@@ -106,5 +106,9 @@ namespace OrderPath_Client_App
             }
         }
 
+        private void bt_DoiMatKhau_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

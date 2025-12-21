@@ -188,6 +188,7 @@
             bt_DoiMatKhau.TabIndex = 16;
             bt_DoiMatKhau.Text = "Đổi mật khẩu";
             bt_DoiMatKhau.UseVisualStyleBackColor = true;
+            bt_DoiMatKhau.Click += bt_DoiMatKhau_Click;
             // 
             // InforUsers
             // 

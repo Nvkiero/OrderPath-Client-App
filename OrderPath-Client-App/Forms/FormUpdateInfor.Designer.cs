@@ -175,6 +175,7 @@
             lb_tieuDe.TabIndex = 31;
             lb_tieuDe.Text = "Cập nhật thông tin của bạn";
             lb_tieuDe.TextAlign = ContentAlignment.MiddleCenter;
+            lb_tieuDe.Click += lb_tieuDe_Click;
             // 
             // bt_CapNhat
             // 
