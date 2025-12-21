@@ -49,33 +49,33 @@
             // tb_address
             // 
             tb_address.Location = new Point(484, 676);
-            tb_address.Margin = new Padding(4, 4, 4, 4);
+            tb_address.Margin = new Padding(4);
             tb_address.Name = "tb_address";
-            tb_address.Size = new Size(438, 40);
+            tb_address.Size = new Size(438, 34);
             tb_address.TabIndex = 30;
             // 
             // tb_age
             // 
             tb_age.Location = new Point(484, 597);
-            tb_age.Margin = new Padding(4, 4, 4, 4);
+            tb_age.Margin = new Padding(4);
             tb_age.Name = "tb_age";
-            tb_age.Size = new Size(438, 40);
+            tb_age.Size = new Size(438, 34);
             tb_age.TabIndex = 29;
             // 
             // tb_Phone
             // 
             tb_Phone.Location = new Point(484, 517);
-            tb_Phone.Margin = new Padding(4, 4, 4, 4);
+            tb_Phone.Margin = new Padding(4);
             tb_Phone.Name = "tb_Phone";
-            tb_Phone.Size = new Size(438, 40);
+            tb_Phone.Size = new Size(438, 34);
             tb_Phone.TabIndex = 28;
             // 
             // tb_username
             // 
             tb_username.Location = new Point(484, 438);
-            tb_username.Margin = new Padding(4, 4, 4, 4);
+            tb_username.Margin = new Padding(4);
             tb_username.Name = "tb_username";
-            tb_username.Size = new Size(438, 40);
+            tb_username.Size = new Size(438, 34);
             tb_username.TabIndex = 27;
             // 
             // lb_address
@@ -95,6 +95,7 @@
             lb_Age.Size = new Size(246, 44);
             lb_Age.TabIndex = 22;
             lb_Age.Text = "Age";
+            lb_Age.Click += lb_Age_Click;
             // 
             // lb_phone
             // 
@@ -144,25 +145,25 @@
             // tb_email
             // 
             tb_email.Location = new Point(484, 359);
-            tb_email.Margin = new Padding(4, 4, 4, 4);
+            tb_email.Margin = new Padding(4);
             tb_email.Name = "tb_email";
-            tb_email.Size = new Size(438, 40);
+            tb_email.Size = new Size(438, 34);
             tb_email.TabIndex = 26;
             // 
             // tb_NgaySinh
             // 
             tb_NgaySinh.Location = new Point(484, 280);
-            tb_NgaySinh.Margin = new Padding(4, 4, 4, 4);
+            tb_NgaySinh.Margin = new Padding(4);
             tb_NgaySinh.Name = "tb_NgaySinh";
-            tb_NgaySinh.Size = new Size(438, 40);
+            tb_NgaySinh.Size = new Size(438, 34);
             tb_NgaySinh.TabIndex = 25;
             // 
             // tb_fullname
             // 
             tb_fullname.Location = new Point(484, 201);
-            tb_fullname.Margin = new Padding(4, 4, 4, 4);
+            tb_fullname.Margin = new Padding(4);
             tb_fullname.Name = "tb_fullname";
-            tb_fullname.Size = new Size(438, 40);
+            tb_fullname.Size = new Size(438, 34);
             tb_fullname.TabIndex = 24;
             // 
             // lb_tieuDe
@@ -174,6 +175,7 @@
             lb_tieuDe.TabIndex = 31;
             lb_tieuDe.Text = "Cập nhật thông tin của bạn";
             lb_tieuDe.TextAlign = ContentAlignment.MiddleCenter;
+            lb_tieuDe.Click += lb_tieuDe_Click;
             // 
             // bt_CapNhat
             // 
@@ -183,10 +185,11 @@
             bt_CapNhat.TabIndex = 32;
             bt_CapNhat.Text = "Cập nhât";
             bt_CapNhat.UseVisualStyleBackColor = true;
+            bt_CapNhat.Click += bt_CapNhat_Click;
             // 
             // FormUpdateInfor
             // 
-            AutoScaleDimensions = new SizeF(15F, 33F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1009, 833);
             Controls.Add(bt_CapNhat);
@@ -206,9 +209,10 @@
             Controls.Add(tb_NgaySinh);
             Controls.Add(tb_fullname);
             Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "FormUpdateInfor";
             Text = "FormUpdateInfor";
+            Load += FormUpdateInfor_Load;
             ResumeLayout(false);
             PerformLayout();
         }
