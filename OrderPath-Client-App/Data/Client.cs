@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace OrderPath_Client_App.Data
 {
     public static class ApiClient
     {
-        public static readonly HttpClient Client = new HttpClient()
+        public static HttpClient Client { get; }
+
+        static ApiClient()
         {
-            BaseAddress = new Uri("http://localhost:5000/api/")
-        };
+            Client = new HttpClient();
+            Client.BaseAddress = new Uri("http://localhost:5000/");
+        }
     }
 }

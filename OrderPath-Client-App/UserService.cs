@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -27,28 +28,26 @@ namespace OrderPath_Client_App
             if (!response.IsSuccessStatusCode)
                 return "Đăng ký thất bại";
 
-            using var doc = JsonDocument.Parse(json);
-            return doc.RootElement.GetProperty("message").GetString()!;
+            return "Đăng ký thành công";
         }
 
-        public async Task<string> LoginUser(UserLogin user)
+        public async Task<LoginResponse?> LoginUser(UserLogin user)
         {
-            var response = await _client.PostAsJsonAsync("auth/login", user);
-            var json = await response.Content.ReadAsStringAsync();
+            //MessageBox.Show("BẮT ĐẦU GỌI API");
 
-            // DEBUG (bạn có thể xóa sau)
-            MessageBox.Show(json);
+            var response = await _client.PostAsJsonAsync("auth/login", user);
+
+            MessageBox.Show("ĐÃ NHẬN RESPONSE");
+
+            var raw = await response.Content.ReadAsStringAsync();
+            MessageBox.Show(raw == "" ? "RAW RỖNG" : raw);
 
             if (!response.IsSuccessStatusCode)
-            {
-                return json; // trả thẳng message string
-            }
-            using var doc = JsonDocument.Parse(json);
+                return null;
 
-            return doc.RootElement
-                      .GetProperty("accessToken")
-                      .GetString()!;
+            return JsonSerializer.Deserialize<LoginResponse>(raw);
         }
+
 
 
     }
