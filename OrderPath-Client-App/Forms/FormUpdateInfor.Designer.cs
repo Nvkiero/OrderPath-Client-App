@@ -96,6 +96,7 @@
             lb_Age.Size = new Size(246, 44);
             lb_Age.TabIndex = 22;
             lb_Age.Text = "Age";
+            lb_Age.Click += lb_Age_Click;
             // 
             // lb_phone
             // 
@@ -175,6 +176,7 @@
             lb_tieuDe.TabIndex = 31;
             lb_tieuDe.Text = "Cập nhật thông tin của bạn";
             lb_tieuDe.TextAlign = ContentAlignment.MiddleCenter;
+            lb_tieuDe.Click += lb_tieuDe_Click;
             // 
             // bt_CapNhat
             // 
@@ -184,6 +186,7 @@
             bt_CapNhat.TabIndex = 32;
             bt_CapNhat.Text = "Cập nhât";
             bt_CapNhat.UseVisualStyleBackColor = true;
+            bt_CapNhat.Click += bt_CapNhat_Click;
             // 
             // btnChangePass
             // 
@@ -221,6 +224,7 @@
             Margin = new Padding(4);
             Name = "FormUpdateInfor";
             Text = "FormUpdateInfor";
+            Load += FormUpdateInfor_Load;
             ResumeLayout(false);
             PerformLayout();
         }

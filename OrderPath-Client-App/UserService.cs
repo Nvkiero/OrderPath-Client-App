@@ -79,6 +79,28 @@ namespace OrderPath_Client_App
             using var doc = JsonDocument.Parse(json);
             return doc.RootElement.GetProperty("message").GetString()!;
         }
+        public async Task<UserResponse?> GetUserById(int userId) //get thong tin user
+        {
+            var res = await _client.GetAsync($"users/{userId}");
 
+            if (!res.IsSuccessStatusCode)
+                return null;
+
+            var json = await res.Content.ReadAsStringAsync();
+
+            return JsonSerializer.Deserialize<UserResponse>(
+                json,
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+        }
+        public async Task<bool> UpdateProfile(int userId, UpdateUserDTO dto) //cap nhap thong tin user 
+        {
+            var res = await _client.PutAsJsonAsync($"users/{userId}", dto);
+            return res.IsSuccessStatusCode;
+        }
     }
 }
+    
+
