@@ -44,6 +44,7 @@
             tb_fullname = new TextBox();
             lb_tieuDe = new Label();
             bt_CapNhat = new Button();
+            btnChangePass = new Button();
             SuspendLayout();
             // 
             // tb_address
@@ -187,11 +188,22 @@
             bt_CapNhat.UseVisualStyleBackColor = true;
             bt_CapNhat.Click += bt_CapNhat_Click;
             // 
+            // btnChangePass
+            // 
+            btnChangePass.Location = new Point(687, 752);
+            btnChangePass.Name = "btnChangePass";
+            btnChangePass.Size = new Size(235, 56);
+            btnChangePass.TabIndex = 33;
+            btnChangePass.Text = "Đổi mật khẩu";
+            btnChangePass.UseVisualStyleBackColor = true;
+            btnChangePass.Click += btnChangePass_Click;
+            // 
             // FormUpdateInfor
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1009, 833);
+            Controls.Add(btnChangePass);
             Controls.Add(bt_CapNhat);
             Controls.Add(lb_tieuDe);
             Controls.Add(tb_address);
@@ -235,5 +247,6 @@
         private TextBox tb_fullname;
         private Label lb_tieuDe;
         private Button bt_CapNhat;
+        private Button btnChangePass;
     }
 }

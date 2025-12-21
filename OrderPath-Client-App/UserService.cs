@@ -49,7 +49,36 @@ namespace OrderPath_Client_App
                       .GetProperty("accessToken")
                       .GetString()!;
         }
+        // Gửi OTP đến email người dùng
+        public async Task<bool> SendOtpAsync(string email)
+        {
+            var response = await _client.PostAsJsonAsync("auth/send-otp", email);
+            return response.IsSuccessStatusCode;
+        }
+        // Xác nhận OTP và đặt lại mật khẩu
+        public async Task<string> ForgotPasswordAsync(ForgotPassword model)
+        {
+            var response = await _client.PostAsJsonAsync("auth/forgot-password", model);
+            var json = await response.Content.ReadAsStringAsync();
 
+            if (!response.IsSuccessStatusCode) return json;
+
+            using var doc = JsonDocument.Parse(json);
+            return doc.RootElement.GetProperty("message").GetString()!;
+        }
+        // Đổi mật khẩu cho người dùng đã đăng nhập
+        public async Task<string> ChangePasswordAsync(ChangePassword model,string token)
+        {
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var response = await _client.PutAsJsonAsync("auth/change-password", model);
+            var json = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode) return json;
+
+            using var doc = JsonDocument.Parse(json);
+            return doc.RootElement.GetProperty("message").GetString()!;
+        }
         public async Task<UserResponse?> GetUserById(int userId) //get thong tin user
         {
             var res = await _client.GetAsync($"users/{userId}");
