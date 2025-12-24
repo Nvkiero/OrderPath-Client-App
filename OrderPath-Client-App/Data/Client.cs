@@ -10,7 +10,7 @@ namespace OrderPath_Client_App.Data
     {
         public static readonly HttpClient Client = new HttpClient()
         {
-            BaseAddress = new Uri("http://localhost:5000/api/")
+            BaseAddress = new Uri("http://localhost:5275/api/")
         };
     }
 }
