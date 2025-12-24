@@ -119,7 +119,7 @@ namespace OrderPath_Client_App
 
         private void bt_DangKy_Click(object sender, EventArgs e)
         {
-            SignUpForm Dangki = new SignUpForm();
+            ShipperForm Dangki = new ShipperForm(100);
             Dangki.Show();
         }
 
