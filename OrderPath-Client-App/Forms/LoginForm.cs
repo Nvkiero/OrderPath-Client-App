@@ -146,6 +146,14 @@ namespace OrderPath_Client_App
             }
 
             MessageBox.Show(result.Message);
+            Session.Token = result.Token;
+            Session.UserId = result.UserId;
+            Session.Role = result.Role;
+            Session.Username = result.Username;
+            // sau khi login thành công và đã có token
+            ApiClient.Client.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", Session.Token);
+
             this.Hide();
             switch (result.Role)
             {

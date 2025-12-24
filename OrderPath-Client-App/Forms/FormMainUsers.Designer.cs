@@ -33,8 +33,10 @@ namespace OrderPath_Client_App
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             bt_search = new Button();
+            dgvProducts = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
             SuspendLayout();
             // 
             // tb_ThanhTimKiem
@@ -73,6 +75,23 @@ namespace OrderPath_Client_App
             bt_search.TabIndex = 3;
             bt_search.Text = "Tìm kiếm";
             bt_search.UseVisualStyleBackColor = true;
+            bt_search.Click += bt_search_Click_1;
+            // 
+            // dgvProducts
+            // 
+            dgvProducts.AllowUserToAddRows = false;
+            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProducts.ColumnHeadersHeight = 34;
+            dgvProducts.Location = new Point(12, 140);
+            dgvProducts.Name = "dgvProducts";
+            dgvProducts.ReadOnly = true;
+            dgvProducts.RowHeadersWidth = 62;
+            dgvProducts.RowTemplate.Height = 60;
+            dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProducts.Size = new Size(850, 580);
+            dgvProducts.TabIndex = 4;
+            this.dgvProducts.CellDoubleClick +=
+            new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellDoubleClick);
             // 
             // FormMainUsers
             // 
@@ -83,12 +102,15 @@ namespace OrderPath_Client_App
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(tb_ThanhTimKiem);
+            Controls.Add(dgvProducts);
             Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             Name = "FormMainUsers";
             Text = "FormMainUsers";
+            Load += FormMainUsers_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -99,5 +121,7 @@ namespace OrderPath_Client_App
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Button bt_search;
+        private DataGridView dgvProducts;
+
     }
 }
