@@ -12,11 +12,9 @@ namespace OrderPath_Client_App.Forms
     {
         private readonly int _currentShipperId;
 
-        public ShipperForm(int shipperId)
+        public ShipperForm()
         {
             InitializeComponent();
-
-            _currentShipperId = shipperId;
 
             this.Load += ShipperForm_Load;
         }
