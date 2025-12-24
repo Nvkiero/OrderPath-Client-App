@@ -20,38 +20,38 @@ namespace OrderPath_Client_App
             _client = ApiClient.Client;
         }
 
-        public async Task<string> RegisterUser(UserRegister user)
+        public async Task<RegisterResponse?> RegisterUser(UserRegister user)
         {
             var response = await _client.PostAsJsonAsync("auth/register", user);
             var json = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
-                return "Đăng ký thất bại";
+                throw new Exception(
+                    JsonDocument.Parse(json).RootElement.GetProperty("message").GetString()
+                );
 
-            return "Đăng ký thành công";
+            return JsonSerializer.Deserialize<RegisterResponse>(
+                json,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+            );
         }
 
         public async Task<LoginResponse?> LoginUser(UserLogin user)
         {
-            //MessageBox.Show("BẮT ĐẦU GỌI API");
-
             var response = await _client.PostAsJsonAsync("auth/login", user);
-
-            MessageBox.Show("ĐÃ NHẬN RESPONSE");
-
             var raw = await response.Content.ReadAsStringAsync();
-            MessageBox.Show(raw == "" ? "RAW RỖNG" : raw);
 
             if (!response.IsSuccessStatusCode)
-                return null;
+                throw new Exception(
+                    JsonDocument.Parse(raw).RootElement.GetProperty("message").GetString()
+                );
 
-            return JsonSerializer.Deserialize<LoginResponse>(raw);
+            return JsonSerializer.Deserialize<LoginResponse>(
+                raw,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+            );
         }
 
-            return doc.RootElement
-                      .GetProperty("accessToken")
-                      .GetString()!;
-        }
         // Gửi OTP đến email người dùng
         public async Task<bool> SendOtpAsync(string email)
         {

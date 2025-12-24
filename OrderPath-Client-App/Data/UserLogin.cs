@@ -14,5 +14,7 @@ namespace OrderPath_Client_App.Data
 
         [Required]
         public string Password { get; set; } = string.Empty;
+        [Required]
+        public string Role { get; set; } = string.Empty;
     }
 }

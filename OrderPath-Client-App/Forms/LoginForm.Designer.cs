@@ -113,7 +113,7 @@
             lblForgotPassword.BackColor = Color.Transparent;
             lblForgotPassword.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblForgotPassword.ForeColor = Color.Gray;
-            lblForgotPassword.Location = new Point(42, 324);
+            lblForgotPassword.Location = new Point(42, 327);
             lblForgotPassword.Name = "lblForgotPassword";
             lblForgotPassword.Size = new Size(203, 41);
             lblForgotPassword.TabIndex = 11;
@@ -164,7 +164,7 @@
             bt_DangNhap.BackColor = Color.FromArgb(255, 128, 0);
             bt_DangNhap.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bt_DangNhap.ForeColor = Color.Transparent;
-            bt_DangNhap.Location = new Point(42, 274);
+            bt_DangNhap.Location = new Point(42, 257);
             bt_DangNhap.Name = "bt_DangNhap";
             bt_DangNhap.Size = new Size(360, 47);
             bt_DangNhap.TabIndex = 7;
@@ -201,7 +201,7 @@
             lb_MatKhau.ForeColor = Color.Gray;
             lb_MatKhau.Location = new Point(16, 2);
             lb_MatKhau.Name = "lb_MatKhau";
-            lb_MatKhau.Size = new Size(82, 22);
+            lb_MatKhau.Size = new Size(104, 27);
             lb_MatKhau.TabIndex = 4;
             lb_MatKhau.Text = "Mật khẩu";
             lb_MatKhau.Click += lb_MatKhau_Click;
@@ -236,7 +236,7 @@
             lb_TieuDe.ForeColor = Color.Gray;
             lb_TieuDe.Location = new Point(16, 2);
             lb_TieuDe.Name = "lb_TieuDe";
-            lb_TieuDe.Size = new Size(124, 22);
+            lb_TieuDe.Size = new Size(154, 27);
             lb_TieuDe.TabIndex = 4;
             lb_TieuDe.Text = "Tên đăng nhập";
             lb_TieuDe.Click += label1_Click;
@@ -254,7 +254,7 @@
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleDimensions = new SizeF(13F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 128, 0);
             ClientSize = new Size(1234, 672);
