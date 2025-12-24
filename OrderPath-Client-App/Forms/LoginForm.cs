@@ -1,7 +1,9 @@
 ﻿using OrderPath_Client_App.Data;
+using OrderPath_Client_App.Forms;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -145,5 +147,9 @@ namespace OrderPath_Client_App
             MessageBox.Show(result.Message);
         }
 
+        private async void lblForgotPassword_Click(object sender, EventArgs e)
+        {
+            new ForgotPasswordForm().ShowDialog();
+        }
     }
 }

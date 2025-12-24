@@ -33,6 +33,7 @@
             lb_TenDangNhap = new Label();
             tb_TenDangNhap = new TextBox();
             pn_LoginForm = new Panel();
+            lblForgotPassword = new Label();
             bt_DangKy = new Button();
             label1 = new Label();
             lb_Hoac = new Label();
@@ -92,6 +93,7 @@
             // pn_LoginForm
             // 
             pn_LoginForm.BackColor = Color.White;
+            pn_LoginForm.Controls.Add(lblForgotPassword);
             pn_LoginForm.Controls.Add(bt_DangKy);
             pn_LoginForm.Controls.Add(label1);
             pn_LoginForm.Controls.Add(pb_exit);
@@ -102,18 +104,31 @@
             pn_LoginForm.Controls.Add(lb_TenDangNhap);
             pn_LoginForm.Location = new Point(732, 83);
             pn_LoginForm.Name = "pn_LoginForm";
-            pn_LoginForm.Size = new Size(470, 564);
+            pn_LoginForm.Size = new Size(470, 523);
             pn_LoginForm.TabIndex = 4;
             pn_LoginForm.Paint += panel1_Paint;
+            // 
+            // lblForgotPassword
+            // 
+            lblForgotPassword.BackColor = Color.Transparent;
+            lblForgotPassword.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblForgotPassword.ForeColor = Color.Gray;
+            lblForgotPassword.Location = new Point(42, 324);
+            lblForgotPassword.Name = "lblForgotPassword";
+            lblForgotPassword.Size = new Size(203, 41);
+            lblForgotPassword.TabIndex = 11;
+            lblForgotPassword.Text = "Quên mật khẩu?";
+            lblForgotPassword.TextAlign = ContentAlignment.MiddleLeft;
+            lblForgotPassword.Click += lblForgotPassword_Click;
             // 
             // bt_DangKy
             // 
             bt_DangKy.BackColor = SystemColors.Control;
             bt_DangKy.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bt_DangKy.ForeColor = Color.FromArgb(255, 128, 0);
-            bt_DangKy.Location = new Point(295, 494);
+            bt_DangKy.Location = new Point(253, 451);
             bt_DangKy.Name = "bt_DangKy";
-            bt_DangKy.Size = new Size(172, 47);
+            bt_DangKy.Size = new Size(156, 32);
             bt_DangKy.TabIndex = 10;
             bt_DangKy.Text = "Đăng ký";
             bt_DangKy.UseVisualStyleBackColor = false;
@@ -124,9 +139,9 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Gray;
-            label1.Location = new Point(49, 494);
+            label1.Location = new Point(42, 447);
             label1.Name = "label1";
-            label1.Size = new Size(290, 41);
+            label1.Size = new Size(203, 41);
             label1.TabIndex = 9;
             label1.Text = "Bạn chưa từng sử dụng?";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -136,7 +151,7 @@
             lb_Hoac.BackColor = Color.Transparent;
             lb_Hoac.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lb_Hoac.ForeColor = Color.Gray;
-            lb_Hoac.Location = new Point(42, 429);
+            lb_Hoac.Location = new Point(42, 395);
             lb_Hoac.Name = "lb_Hoac";
             lb_Hoac.Size = new Size(360, 53);
             lb_Hoac.TabIndex = 8;
@@ -149,7 +164,7 @@
             bt_DangNhap.BackColor = Color.FromArgb(255, 128, 0);
             bt_DangNhap.Font = new Font("Times New Roman", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bt_DangNhap.ForeColor = Color.Transparent;
-            bt_DangNhap.Location = new Point(42, 361);
+            bt_DangNhap.Location = new Point(42, 274);
             bt_DangNhap.Name = "bt_DangNhap";
             bt_DangNhap.Size = new Size(360, 47);
             bt_DangNhap.TabIndex = 7;
@@ -162,7 +177,7 @@
             panel3.Controls.Add(pb_PassWordChar);
             panel3.Controls.Add(lb_MatKhau);
             panel3.Controls.Add(tb_MatKhau);
-            panel3.Location = new Point(42, 283);
+            panel3.Location = new Point(42, 203);
             panel3.Name = "panel3";
             panel3.Size = new Size(360, 35);
             panel3.TabIndex = 6;
@@ -186,7 +201,7 @@
             lb_MatKhau.ForeColor = Color.Gray;
             lb_MatKhau.Location = new Point(16, 2);
             lb_MatKhau.Name = "lb_MatKhau";
-            lb_MatKhau.Size = new Size(104, 27);
+            lb_MatKhau.Size = new Size(82, 22);
             lb_MatKhau.TabIndex = 4;
             lb_MatKhau.Text = "Mật khẩu";
             lb_MatKhau.Click += lb_MatKhau_Click;
@@ -209,7 +224,7 @@
             // 
             pn_DangNhap.Controls.Add(lb_TieuDe);
             pn_DangNhap.Controls.Add(tb_TenDangNhap);
-            pn_DangNhap.Location = new Point(42, 199);
+            pn_DangNhap.Location = new Point(42, 151);
             pn_DangNhap.Name = "pn_DangNhap";
             pn_DangNhap.Size = new Size(360, 35);
             pn_DangNhap.TabIndex = 5;
@@ -221,7 +236,7 @@
             lb_TieuDe.ForeColor = Color.Gray;
             lb_TieuDe.Location = new Point(16, 2);
             lb_TieuDe.Name = "lb_TieuDe";
-            lb_TieuDe.Size = new Size(154, 27);
+            lb_TieuDe.Size = new Size(124, 22);
             lb_TieuDe.TabIndex = 4;
             lb_TieuDe.Text = "Tên đăng nhập";
             lb_TieuDe.Click += label1_Click;
@@ -239,7 +254,7 @@
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 27F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 128, 0);
             ClientSize = new Size(1234, 672);
@@ -278,5 +293,6 @@
         private Label lb_Hoac;
         private PictureBox pb_HinhNen;
         private PictureBox pb_PassWordChar;
+        private Label lblForgotPassword;
     }
 }
