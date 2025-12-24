@@ -22,6 +22,7 @@ namespace OrderPath_Client_App.Forms
         {
             InitializeComponent();
             _userService = new UserService();
+            userId = Session.UserId;
         }
 
         private async void FormUpdateInfor_Load(object sender, EventArgs e)
@@ -97,7 +98,12 @@ namespace OrderPath_Client_App.Forms
 
         private void btnChangePass_Click(object sender, EventArgs e)
         {
-            //new ChangePasswordForm(Session.Token).ShowDialog(); // cần tạo class Session để lưu token
+            if (string.IsNullOrEmpty(Session.Token))
+            {
+                MessageBox.Show("Bạn chưa đăng nhập");
+                return;
+            }
+            new ChangePasswordForm(Session.Token).ShowDialog();
         }
     }
 }
