@@ -43,6 +43,7 @@ namespace OrderPath_Client_App
             string phone = tb_Phone.Text.Trim();
             string address = tb_Address.Text.Trim();
             int age = int.Parse(tb_Age.Text.Trim());
+            string Role = cb_role.SelectedItem.ToString() ?? "";
             DateTime birth = dt_Birth.Value;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) ||
@@ -70,12 +71,13 @@ namespace OrderPath_Client_App
                 Address = address,
                 Age = age,
                 Birth = birth,
+                Role = Role
             };
 
             try
             {
-                string success = await service.RegisterUser(newUser);
-                MessageBox.Show(success);
+                RegisterResponse success = await service.RegisterUser(newUser);
+                MessageBox.Show(success.Message);
             }
             catch (Exception ex)
             {

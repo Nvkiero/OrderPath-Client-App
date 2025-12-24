@@ -50,6 +50,8 @@ namespace OrderPath_Client_App
             lb_TenDangNhap = new Label();
             tb_TenDangNhap = new TextBox();
             lb_HoTen = new Label();
+            cb_role = new ComboBox();
+            lb_role = new Label();
             pn_FormDangKi.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,6 +69,8 @@ namespace OrderPath_Client_App
             // pn_FormDangKi
             // 
             pn_FormDangKi.BackColor = Color.White;
+            pn_FormDangKi.Controls.Add(lb_role);
+            pn_FormDangKi.Controls.Add(cb_role);
             pn_FormDangKi.Controls.Add(dt_Birth);
             pn_FormDangKi.Controls.Add(lb_Birth);
             pn_FormDangKi.Controls.Add(tb_Phone);
@@ -246,6 +250,24 @@ namespace OrderPath_Client_App
             lb_HoTen.Text = "Họ Tên";
             lb_HoTen.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // cb_role
+            // 
+            cb_role.FormattingEnabled = true;
+            cb_role.Items.AddRange(new object[] { "Shop", "Shipper", "Customer" });
+            cb_role.Location = new Point(273, 624);
+            cb_role.Name = "cb_role";
+            cb_role.Size = new Size(182, 35);
+            cb_role.TabIndex = 21;
+            // 
+            // lb_role
+            // 
+            lb_role.Location = new Point(13, 624);
+            lb_role.Name = "lb_role";
+            lb_role.Size = new Size(210, 38);
+            lb_role.TabIndex = 22;
+            lb_role.Text = "Role";
+            lb_role.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // SignUpForm
             // 
             AutoScaleDimensions = new SizeF(13F, 27F);
@@ -285,6 +307,8 @@ namespace OrderPath_Client_App
         private Label lb_Phone;
         private Label lb_Birth;
         private DateTimePicker dt_Birth;
+        private Label lb_role;
+        private ComboBox cb_role;
     }
 
 }

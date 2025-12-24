@@ -1,6 +1,7 @@
 ﻿using OrderPath_Client_App.Data;
 using OrderPath_Client_App.Forms;
 using System;
+using System.Data;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
@@ -121,6 +122,7 @@ namespace OrderPath_Client_App
             ShipperForm Dangki = new ShipperForm(100);
             Dangki.Show();
         }
+
         private async void bt_DangNhap_Click(object sender, EventArgs e)
         {
             string username = tb_TenDangNhap.Text;
@@ -129,38 +131,46 @@ namespace OrderPath_Client_App
             var user = new UserLogin
             {
                 Username = username,
-                Password = password
+                Password = password,
             };
 
             var service = new UserService();
             var result = await service.LoginUser(user);
+
+            //MessageBox.Show("ĐÃ CHẠY QUA LOGIN");
+
             if (result == null)
             {
-                MessageBox.Show("Lỗi hệ thống");
+                MessageBox.Show("Login thất bại");
                 return;
             }
 
-            if (result.StartsWith("ey")) // JWT token
+            MessageBox.Show(result.Message);
+            this.Hide();
+            switch (result.Role)
             {
-                MessageBox.Show("Đăng nhập thành công");
-
-
-                //// 🔐 LƯU TOKEN
-                //Session.AccessToken = result;
-
-                //// mở form chính
-                new FormMainUsers().Show();
-                this.Hide();
+                case "Customer":
+                    new FormMainUsers().Show();
+                    break;
+                case "Shop":
+                    //new SellerForm().Show();
+                    break;
+                case "Shipper":
+                    //new ShipperForm().Show();
+                    break;
             }
-            else
-            {
-                MessageBox.Show(result); // message từ server
-            }
+            this.Hide();
+
         }
 
         private async void lblForgotPassword_Click(object sender, EventArgs e)
         {
             new ForgotPasswordForm().ShowDialog();
+        }
+
+        private void cb_role_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

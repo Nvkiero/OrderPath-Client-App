@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -19,36 +20,38 @@ namespace OrderPath_Client_App
             _client = ApiClient.Client;
         }
 
-        public async Task<string> RegisterUser(UserRegister user)
+        public async Task<RegisterResponse?> RegisterUser(UserRegister user)
         {
             var response = await _client.PostAsJsonAsync("auth/register", user);
             var json = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
-                return "Đăng ký thất bại";
+                throw new Exception(
+                    JsonDocument.Parse(json).RootElement.GetProperty("message").GetString()
+                );
 
-            using var doc = JsonDocument.Parse(json);
-            return doc.RootElement.GetProperty("message").GetString()!;
+            return JsonSerializer.Deserialize<RegisterResponse>(
+                json,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+            );
         }
 
-        public async Task<string> LoginUser(UserLogin user)
+        public async Task<LoginResponse?> LoginUser(UserLogin user)
         {
             var response = await _client.PostAsJsonAsync("auth/login", user);
-            var json = await response.Content.ReadAsStringAsync();
-
-            // DEBUG (bạn có thể xóa sau)
-            MessageBox.Show(json);
+            var raw = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
-            {
-                return json; // trả thẳng message string
-            }
-            using var doc = JsonDocument.Parse(json);
+                throw new Exception(
+                    JsonDocument.Parse(raw).RootElement.GetProperty("message").GetString()
+                );
 
-            return doc.RootElement
-                      .GetProperty("accessToken")
-                      .GetString()!;
+            return JsonSerializer.Deserialize<LoginResponse>(
+                raw,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+            );
         }
+
         // Gửi OTP đến email người dùng
         public async Task<bool> SendOtpAsync(string email)
         {
