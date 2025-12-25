@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic.ApplicationServices;
+using OrderPath_Client_App.Data;
 using OrderPath_Client_App.Forms;
 namespace OrderPath_Client_App
 {
@@ -36,7 +38,6 @@ namespace OrderPath_Client_App
             dgvProducts.Columns["Category"].HeaderText = "Loại";
 
             dgvProducts.Columns["Price"].DefaultCellStyle.Format = "N0";
-
         }
 
         private async void bt_search_Click_1(object sender, EventArgs e)
@@ -60,6 +61,12 @@ namespace OrderPath_Client_App
         {
             InforUsers inforUsers = new InforUsers();
             inforUsers.Show();
+        }
+
+        private void bt_TheoDoiDon_Click(object sender, EventArgs e)
+        {
+            OrderPath orderPath = new OrderPath();
+            orderPath.Show();
         }
     }
 }

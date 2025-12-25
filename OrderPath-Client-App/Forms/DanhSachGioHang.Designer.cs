@@ -80,11 +80,13 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 128, 0);
             ClientSize = new Size(940, 491);
             Controls.Add(lblTongTien);
             Controls.Add(btnThanhToan);
             Controls.Add(btnXoa);
             Controls.Add(dgvGioHang);
+            ForeColor = Color.Black;
             Name = "DanhSachGioHang";
             Text = "Danh Sách Giỏ Hàng";
             Load += DanhSachGioHang_Load;

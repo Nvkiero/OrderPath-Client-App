@@ -37,6 +37,7 @@ namespace OrderPath_Client_App
             bt_search = new Button();
             dgvProducts = new DataGridView();
             pn_ = new Panel();
+            bt_TheoDoiDon = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -57,7 +58,7 @@ namespace OrderPath_Client_App
             pictureBox1.InitialImage = null;
             pictureBox1.Location = new Point(854, 180);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(102, 111);
+            pictureBox1.Size = new Size(113, 111);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -65,7 +66,7 @@ namespace OrderPath_Client_App
             // 
             // pictureBox2
             // 
-            pictureBox2.Location = new Point(1176, 36);
+            pictureBox2.Location = new Point(1035, 180);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(150, 111);
             pictureBox2.TabIndex = 2;
@@ -100,7 +101,6 @@ namespace OrderPath_Client_App
             // pn_
             // 
             pn_.BackColor = Color.FromArgb(255, 128, 0);
-            pn_.Controls.Add(pictureBox2);
             pn_.Controls.Add(bt_search);
             pn_.Controls.Add(tb_ThanhTimKiem);
             pn_.Location = new Point(-2, 0);
@@ -108,11 +108,23 @@ namespace OrderPath_Client_App
             pn_.Size = new Size(1337, 150);
             pn_.TabIndex = 5;
             // 
+            // bt_TheoDoiDon
+            // 
+            bt_TheoDoiDon.Location = new Point(854, 351);
+            bt_TheoDoiDon.Name = "bt_TheoDoiDon";
+            bt_TheoDoiDon.Size = new Size(256, 74);
+            bt_TheoDoiDon.TabIndex = 6;
+            bt_TheoDoiDon.Text = "Theo dõi đơn hàng";
+            bt_TheoDoiDon.UseVisualStyleBackColor = true;
+            bt_TheoDoiDon.Click += bt_TheoDoiDon_Click;
+            // 
             // FormMainUsers
             // 
             AutoScaleDimensions = new SizeF(15F, 33F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1336, 760);
+            Controls.Add(bt_TheoDoiDon);
+            Controls.Add(pictureBox2);
             Controls.Add(pn_);
             Controls.Add(pictureBox1);
             Controls.Add(dgvProducts);
@@ -137,5 +149,6 @@ namespace OrderPath_Client_App
         private Button bt_search;
         private DataGridView dgvProducts;
         private Panel pn_;
+        private Button bt_TheoDoiDon;
     }
 }

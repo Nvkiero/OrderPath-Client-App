@@ -54,6 +54,30 @@ namespace OrderPath_Client_App
             return response.IsSuccessStatusCode;
         }
 
+        public  async Task<List<OrderDTO>> GetMyOrders()
+        {
 
+            var response = await _client.GetAsync("customer/order/my");
+            response.EnsureSuccessStatusCode();
+
+            var json = await response.Content.ReadAsStringAsync();
+            var orders = JsonSerializer.Deserialize<List<OrderDTO>>(json,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            return orders ?? new List<OrderDTO>();
+        }
+
+        public  async Task<OrderDetailDTO> GetOrderDetail(int orderId)
+        {
+            var response = await _client.GetAsync($"customer/order/{orderId}");
+            response.EnsureSuccessStatusCode();
+
+            var json = await response.Content.ReadAsStringAsync();
+            var order = JsonSerializer.Deserialize<OrderDetailDTO>(json,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            return order!;
+        }
     }
 }
+
