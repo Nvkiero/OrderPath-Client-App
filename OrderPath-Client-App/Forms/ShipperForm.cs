@@ -84,7 +84,7 @@ namespace OrderPath_Client_App.Forms
                 {
                     lblCompanyNameVal.Text = response.Username;
                     lblPhoneVal.Text = response.Phone;
-                    lblVehicleVal.Text = response.VehicleType;
+                    lblVehicleVal.Text = response.Vehicle;
                     lblTotalDeliveriesVal.Text = response.TotalDeliveries.ToString();
                 }
             }

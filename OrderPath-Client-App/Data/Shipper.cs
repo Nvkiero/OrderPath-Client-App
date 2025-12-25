@@ -11,7 +11,7 @@ namespace OrderPath_Client_App.Data
         public int ShipperId { get; set; }
         public string Username { get; set; }
         public string Phone { get; set; }
-        public string VehicleType { get; set; }
+        public string Vehicle { get; set; }
         public int TotalDeliveries { get; set; }
     }
 
