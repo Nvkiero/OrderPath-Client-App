@@ -119,7 +119,7 @@ namespace OrderPath_Client_App
 
         private void bt_DangKy_Click(object sender, EventArgs e)
         {
-            ShipperForm Dangki = new ShipperForm(100);
+            SignUpForm Dangki = new SignUpForm();
             Dangki.Show();
         }
 
@@ -146,17 +146,25 @@ namespace OrderPath_Client_App
             }
 
             MessageBox.Show(result.Message);
+            Session.Token = result.Token;
+            Session.UserId = result.UserId;
+            Session.Role = result.Role;
+            Session.Username = result.Username;
+            // sau khi login thành công và đã có token
+            ApiClient.Client.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", Session.Token);
+
             this.Hide();
             switch (result.Role)
             {
                 case "Customer":
                     new FormMainUsers().Show();
                     break;
-                case "Shop":
-                    //new SellerForm().Show();
+                case "Seller":
+                    new SellerGUI().Show();
                     break;
                 case "Shipper":
-                    //new ShipperForm().Show();
+                    new ShipperForm(result.UserId).Show();
                     break;
             }
             this.Hide();

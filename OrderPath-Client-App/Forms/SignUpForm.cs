@@ -32,7 +32,7 @@ namespace OrderPath_Client_App
         {
 
         }
-       
+
         private async void bt_DangKi_Click(object sender, EventArgs e)
         {
             string username = tb_TenDangNhap.Text.Trim();
@@ -83,6 +83,11 @@ namespace OrderPath_Client_App
             {
                 MessageBox.Show("Lỗi kết nối server: " + ex.Message);
             }
+        }
+
+        private void button_out_Click(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }

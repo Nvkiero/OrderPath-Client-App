@@ -85,16 +85,13 @@
             this.dgvOrders.AllowUserToAddRows = false;
             this.dgvOrders.AllowUserToDeleteRows = false;
             this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-
-            // --- DARKER ORANGE THEME FOR DATAGRID ---
-            this.dgvOrders.BackgroundColor = System.Drawing.Color.AntiqueWhite; // Warmer/Darker background
+            this.dgvOrders.BackgroundColor = System.Drawing.Color.AntiqueWhite;
             this.dgvOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvOrders.EnableHeadersVisualStyles = false;
-            this.dgvOrders.GridColor = System.Drawing.Color.SandyBrown; // Darker grid lines
+            this.dgvOrders.GridColor = System.Drawing.Color.SandyBrown;
 
-            // 1. Header Style
+            // Header Style
             dataGridViewCellStyleHeader.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            // Changed from DarkOrange to Chocolate (Deep Burnt Orange)
             dataGridViewCellStyleHeader.BackColor = System.Drawing.Color.Chocolate;
             dataGridViewCellStyleHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyleHeader.ForeColor = System.Drawing.Color.White;
@@ -103,12 +100,11 @@
             dataGridViewCellStyleHeader.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyleHeader;
 
-            // 2. Row Style
+            // Row Style
             dataGridViewCellStyleRows.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyleRows.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyleRows.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyleRows.ForeColor = System.Drawing.SystemColors.ControlText;
-            // Changed from PeachPuff to SandyBrown (Darker selection)
             dataGridViewCellStyleRows.SelectionBackColor = System.Drawing.Color.SandyBrown;
             dataGridViewCellStyleRows.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyleRows.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -126,7 +122,6 @@
             // 
             // pnlActions
             // 
-            // COLOR CHANGE: AntiqueWhite (Darker/Warmer than OldLace)
             this.pnlActions.BackColor = System.Drawing.Color.AntiqueWhite;
             this.pnlActions.Controls.Add(this.btnRefresh);
             this.pnlActions.Controls.Add(this.btnUpdateStatus);
@@ -150,7 +145,6 @@
             // 
             // btnUpdateStatus
             // 
-            // COLOR CHANGE: OrangeRed (Vibrant/Darker than DarkOrange)
             this.btnUpdateStatus.BackColor = System.Drawing.Color.OrangeRed;
             this.btnUpdateStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -180,7 +174,6 @@
             // lblStatusAction
             // 
             this.lblStatusAction.AutoSize = true;
-            // COLOR CHANGE: SaddleBrown (Very dark orange-brown)
             this.lblStatusAction.ForeColor = System.Drawing.Color.SaddleBrown;
             this.lblStatusAction.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStatusAction.Location = new System.Drawing.Point(30, 35);
@@ -210,7 +203,6 @@
             this.grpProfile.Controls.Add(this.lblStaticVehicle);
             this.grpProfile.Controls.Add(this.lblStaticPhone);
             this.grpProfile.Controls.Add(this.lblStaticCompany);
-            // COLOR CHANGE: SaddleBrown
             this.grpProfile.ForeColor = System.Drawing.Color.SaddleBrown;
             this.grpProfile.Location = new System.Drawing.Point(20, 20);
             this.grpProfile.Name = "grpProfile";
@@ -298,6 +290,7 @@
             // 
             // lblStaticCompany
             // 
+            // FIX: Changed Text from "Company:" to "Username:"
             this.lblStaticCompany.AutoSize = true;
             this.lblStaticCompany.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblStaticCompany.ForeColor = System.Drawing.Color.SaddleBrown;
@@ -305,7 +298,7 @@
             this.lblStaticCompany.Name = "lblStaticCompany";
             this.lblStaticCompany.Size = new System.Drawing.Size(61, 15);
             this.lblStaticCompany.TabIndex = 0;
-            this.lblStaticCompany.Text = "Company:";
+            this.lblStaticCompany.Text = "Username:";
             // 
             // ShipperForm
             // 

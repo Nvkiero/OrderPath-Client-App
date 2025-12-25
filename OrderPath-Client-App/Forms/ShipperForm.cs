@@ -12,11 +12,11 @@ namespace OrderPath_Client_App.Forms
     {
         private readonly int _currentShipperId;
 
-        public ShipperForm(int shipperId)
+        public ShipperForm(int UserID)
         {
             InitializeComponent();
 
-            _currentShipperId = shipperId;
+            _currentShipperId = UserID;
 
             this.Load += ShipperForm_Load;
         }
@@ -79,7 +79,7 @@ namespace OrderPath_Client_App.Forms
         {
             try
             {
-                var response = await ApiClient.Client.GetFromJsonAsync<ShipperProfileResponse>($"shipper/{_currentShipperId}");
+                var response = await ApiClient.Client.GetFromJsonAsync<ShipperProfileResponse>($"shipper/profile");
                 if (response != null)
                 {
                     lblCompanyNameVal.Text = response.Username;
@@ -93,7 +93,6 @@ namespace OrderPath_Client_App.Forms
                 MessageBox.Show("Error loading profile: " + ex.Message);
             }
         }
-
         private async Task LoadOrders()
         {
             try

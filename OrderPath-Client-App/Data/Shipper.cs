@@ -19,7 +19,7 @@ namespace OrderPath_Client_App.Data
     {
         public int OrderId { get; set; }
         public string CustomerName { get; set; }
-        public string ShippingAddress { get; set; }
+        public string ShippingAddress { get; set; } = string.Empty;
         public string ProductName { get; set; }
         public int Quantity { get; set; }
         public string CurrentStatus { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace OrderPath_Client_App
 {
-    partial class TestMap
+    partial class ShipperMapForm
     {
         /// <summary>
         /// Required designer variable.
@@ -51,7 +51,7 @@
             Controls.Add(webView21);
             Name = "TestMap";
             Text = "TestMap";
-            Load += TestMap_Load;
+            Load += ShipperMapForm_Load;
             ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
         }

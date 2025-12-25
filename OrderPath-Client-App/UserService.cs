@@ -1,11 +1,8 @@
 ﻿using OrderPath_Client_App.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using System.Reflection.Metadata;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -20,6 +17,40 @@ namespace OrderPath_Client_App
             _client = ApiClient.Client;
         }
 
+        //Helper: Hàm này để gắn Token vào mỗi request
+        private void SetToken(string token)
+        {
+            if (!string.IsNullOrEmpty(token))
+            {
+                _client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", token);
+            }
+        }
+
+         //1. GET: Lấy thông tin cá nhân(Cần Token)
+        public async Task<UserResponse?> GetMyProfile(string token)
+        {
+            SetToken(token); // Gắn token
+
+            // Gọi đúng endpoint server: users/profile
+            var res = await _client.GetAsync("users/profile");
+
+            if (!res.IsSuccessStatusCode) return null;
+
+            var json = await res.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<UserResponse>(json,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+
+        // 2. PUT: Cập nhật thông tin (Cần Token)
+         public async Task<bool> UpdateProfile(string token, UpdateUserDTO dto)
+         {
+             SetToken(token); // Gắn token
+
+             // Gọi đúng endpoint server: users/me (không cần truyền ID vì server tự lấy từ token)
+             var res = await _client.PutAsJsonAsync("users/me", dto);
+             return res.IsSuccessStatusCode;
+         }
         public async Task<RegisterResponse?> RegisterUser(UserRegister user)
         {
             var response = await _client.PostAsJsonAsync("auth/register", user);
@@ -45,47 +76,43 @@ namespace OrderPath_Client_App
                 throw new Exception(
                     JsonDocument.Parse(raw).RootElement.GetProperty("message").GetString()
                 );
-
             return JsonSerializer.Deserialize<LoginResponse>(
                 raw,
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
             );
         }
 
-        // Gửi OTP đến email người dùng
+        //Gửi OTP đến email người dùng
         public async Task<bool> SendOtpAsync(string email)
         {
-            var response = await _client.PostAsJsonAsync("auth/send-otp", email);
-            return response.IsSuccessStatusCode;
+            var res = await _client.PostAsJsonAsync("auth/send-otp", new SendOtpRequest { Email = email }
+            );
+            return res.IsSuccessStatusCode;
         }
-        // Xác nhận OTP và đặt lại mật khẩu
         public async Task<string> ForgotPasswordAsync(ForgotPassword model)
         {
-            var response = await _client.PostAsJsonAsync("auth/forgot-password", model);
-            var json = await response.Content.ReadAsStringAsync();
+            var res = await _client.PostAsJsonAsync("auth/forgot-password", model);
+            var json = await res.Content.ReadAsStringAsync();
 
-            if (!response.IsSuccessStatusCode) return json;
-
-            using var doc = JsonDocument.Parse(json);
-            return doc.RootElement.GetProperty("message").GetString()!;
+            return JsonDocument.Parse(json)
+                .RootElement.GetProperty("message").GetString()!;
         }
         // Đổi mật khẩu cho người dùng đã đăng nhập
-        public async Task<string> ChangePasswordAsync(ChangePassword model,string token)
+        public async Task<string> ChangePasswordAsync(ChangePassword model, string token)
         {
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            SetToken(token);
 
-            var response = await _client.PutAsJsonAsync("auth/change-password", model);
-            var json = await response.Content.ReadAsStringAsync();
+            var res = await _client.PutAsJsonAsync("auth/change-password", model);
+            var json = await res.Content.ReadAsStringAsync();
 
-            if (!response.IsSuccessStatusCode) return json;
-
-            using var doc = JsonDocument.Parse(json);
-            return doc.RootElement.GetProperty("message").GetString()!;
+            return JsonDocument.Parse(json)
+                .RootElement.GetProperty("message").GetString()!;
         }
-        public async Task<UserResponse?> GetUserById(int userId) //get thong tin user
-        {
-            var res = await _client.GetAsync($"users/{userId}");
 
+        public async Task<UserResponse?> GetUserById() //get thong tin user
+        {
+            var res = await _client.GetAsync($"users/profile");
+            MessageBox.Show(res.ToString());
             if (!res.IsSuccessStatusCode)
                 return null;
 
