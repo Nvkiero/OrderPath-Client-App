@@ -184,7 +184,7 @@
             bt_CapNhat.Name = "bt_CapNhat";
             bt_CapNhat.Size = new Size(235, 56);
             bt_CapNhat.TabIndex = 32;
-            bt_CapNhat.Text = "Cập nhât";
+            bt_CapNhat.Text = "Cập nhật";
             bt_CapNhat.UseVisualStyleBackColor = true;
             bt_CapNhat.Click += bt_CapNhat_Click;
             // 
