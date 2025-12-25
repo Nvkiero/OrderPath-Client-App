@@ -56,6 +56,10 @@ namespace OrderPath_Client_App
             f.ShowDialog();
         }
 
-
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            InforUsers inforUsers = new InforUsers();
+            inforUsers.Show();
+        }
     }
 }
