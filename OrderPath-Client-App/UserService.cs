@@ -82,10 +82,10 @@ namespace OrderPath_Client_App
             using var doc = JsonDocument.Parse(json);
             return doc.RootElement.GetProperty("message").GetString()!;
         }
-        public async Task<UserResponse?> GetUserById(int userId) //get thong tin user
+        public async Task<UserResponse?> GetUserById() //get thong tin user
         {
-            var res = await _client.GetAsync($"users/{userId}");
-
+            var res = await _client.GetAsync($"users/profile");
+            MessageBox.Show(res.ToString());
             if (!res.IsSuccessStatusCode)
                 return null;
 

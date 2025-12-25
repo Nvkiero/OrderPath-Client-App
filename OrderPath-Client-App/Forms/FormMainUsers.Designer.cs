@@ -70,6 +70,7 @@ namespace OrderPath_Client_App
             pictureBox2.Size = new Size(150, 111);
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // bt_search
             // 

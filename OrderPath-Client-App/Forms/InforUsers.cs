@@ -46,8 +46,7 @@ namespace OrderPath_Client_App
             try
             {
                 // THAY ĐỔI QUAN TRỌNG: Dùng Session.UserId thay vì biến userId cũ
-                _currentUser = await _userService.GetUserById(Session.UserId);
-
+                _currentUser = await _userService.GetUserById();
                 if (_currentUser == null)
                 {
                     MessageBox.Show("Không tải được thông tin User.");
@@ -61,6 +60,7 @@ namespace OrderPath_Client_App
                 tb_age.Text = _currentUser.Age.ToString();
                 tb_address.Text = _currentUser.Address;
                 tb_NgaySinh.Text = _currentUser.Birth.ToString("yyyy-MM-dd");
+                tb_Phone.Text = _currentUser.Phone;
 
                 // Nếu UserResponse có Avatar thì load ảnh lên (nếu server trả về link ảnh)
                 // if (!string.IsNullOrEmpty(_currentUser.Avatar)) { ... }
