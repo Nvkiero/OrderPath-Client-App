@@ -31,6 +31,8 @@ namespace OrderPath_Client_App
         {
             lb_DangKi = new Label();
             pn_FormDangKi = new Panel();
+            lb_role = new Label();
+            cb_role = new ComboBox();
             dt_Birth = new DateTimePicker();
             lb_Birth = new Label();
             tb_Phone = new TextBox();
@@ -50,8 +52,7 @@ namespace OrderPath_Client_App
             lb_TenDangNhap = new Label();
             tb_TenDangNhap = new TextBox();
             lb_HoTen = new Label();
-            cb_role = new ComboBox();
-            lb_role = new Label();
+            button_out = new Button();
             pn_FormDangKi.SuspendLayout();
             SuspendLayout();
             // 
@@ -69,6 +70,7 @@ namespace OrderPath_Client_App
             // pn_FormDangKi
             // 
             pn_FormDangKi.BackColor = Color.White;
+            pn_FormDangKi.Controls.Add(button_out);
             pn_FormDangKi.Controls.Add(lb_role);
             pn_FormDangKi.Controls.Add(cb_role);
             pn_FormDangKi.Controls.Add(dt_Birth);
@@ -96,11 +98,29 @@ namespace OrderPath_Client_App
             pn_FormDangKi.Size = new Size(549, 767);
             pn_FormDangKi.TabIndex = 1;
             // 
+            // lb_role
+            // 
+            lb_role.Location = new Point(13, 624);
+            lb_role.Name = "lb_role";
+            lb_role.Size = new Size(210, 38);
+            lb_role.TabIndex = 22;
+            lb_role.Text = "Role";
+            lb_role.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // cb_role
+            // 
+            cb_role.FormattingEnabled = true;
+            cb_role.Items.AddRange(new object[] { "Shop", "Shipper", "Customer" });
+            cb_role.Location = new Point(273, 624);
+            cb_role.Name = "cb_role";
+            cb_role.Size = new Size(182, 30);
+            cb_role.TabIndex = 21;
+            // 
             // dt_Birth
             // 
             dt_Birth.Location = new Point(136, 583);
             dt_Birth.Name = "dt_Birth";
-            dt_Birth.Size = new Size(400, 35);
+            dt_Birth.Size = new Size(400, 30);
             dt_Birth.TabIndex = 20;
             // 
             // lb_Birth
@@ -116,14 +136,14 @@ namespace OrderPath_Client_App
             // 
             tb_Phone.Location = new Point(273, 521);
             tb_Phone.Name = "tb_Phone";
-            tb_Phone.Size = new Size(262, 35);
+            tb_Phone.Size = new Size(262, 30);
             tb_Phone.TabIndex = 17;
             // 
             // tb_Address
             // 
             tb_Address.Location = new Point(273, 460);
             tb_Address.Name = "tb_Address";
-            tb_Address.Size = new Size(262, 35);
+            tb_Address.Size = new Size(262, 30);
             tb_Address.TabIndex = 16;
             // 
             // lb_Phone
@@ -148,7 +168,7 @@ namespace OrderPath_Client_App
             // 
             tb_Age.Location = new Point(274, 402);
             tb_Age.Name = "tb_Age";
-            tb_Age.Size = new Size(262, 35);
+            tb_Age.Size = new Size(262, 30);
             tb_Age.TabIndex = 13;
             // 
             // lb_Age
@@ -174,7 +194,7 @@ namespace OrderPath_Client_App
             // 
             tb_gmail.Location = new Point(273, 336);
             tb_gmail.Name = "tb_gmail";
-            tb_gmail.Size = new Size(262, 35);
+            tb_gmail.Size = new Size(262, 30);
             tb_gmail.TabIndex = 10;
             // 
             // lb_gmail
@@ -199,14 +219,14 @@ namespace OrderPath_Client_App
             // 
             tb_XacNhan.Location = new Point(273, 268);
             tb_XacNhan.Name = "tb_XacNhan";
-            tb_XacNhan.Size = new Size(262, 35);
+            tb_XacNhan.Size = new Size(262, 30);
             tb_XacNhan.TabIndex = 7;
             // 
             // tb_MatKhau
             // 
             tb_MatKhau.Location = new Point(274, 204);
             tb_MatKhau.Name = "tb_MatKhau";
-            tb_MatKhau.Size = new Size(262, 35);
+            tb_MatKhau.Size = new Size(262, 30);
             tb_MatKhau.TabIndex = 6;
             // 
             // lb_PassWord
@@ -222,7 +242,7 @@ namespace OrderPath_Client_App
             // 
             tb_HoTen.Location = new Point(273, 92);
             tb_HoTen.Name = "tb_HoTen";
-            tb_HoTen.Size = new Size(262, 35);
+            tb_HoTen.Size = new Size(262, 30);
             tb_HoTen.TabIndex = 4;
             // 
             // lb_TenDangNhap
@@ -238,7 +258,7 @@ namespace OrderPath_Client_App
             // 
             tb_TenDangNhap.Location = new Point(273, 148);
             tb_TenDangNhap.Name = "tb_TenDangNhap";
-            tb_TenDangNhap.Size = new Size(262, 35);
+            tb_TenDangNhap.Size = new Size(262, 30);
             tb_TenDangNhap.TabIndex = 2;
             // 
             // lb_HoTen
@@ -250,27 +270,19 @@ namespace OrderPath_Client_App
             lb_HoTen.Text = "Họ Tên";
             lb_HoTen.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // cb_role
+            // button_out
             // 
-            cb_role.FormattingEnabled = true;
-            cb_role.Items.AddRange(new object[] { "Shop", "Shipper", "Customer" });
-            cb_role.Location = new Point(273, 624);
-            cb_role.Name = "cb_role";
-            cb_role.Size = new Size(182, 35);
-            cb_role.TabIndex = 21;
-            // 
-            // lb_role
-            // 
-            lb_role.Location = new Point(13, 624);
-            lb_role.Name = "lb_role";
-            lb_role.Size = new Size(210, 38);
-            lb_role.TabIndex = 22;
-            lb_role.Text = "Role";
-            lb_role.TextAlign = ContentAlignment.MiddleLeft;
+            button_out.Location = new Point(441, 12);
+            button_out.Name = "button_out";
+            button_out.Size = new Size(94, 29);
+            button_out.TabIndex = 23;
+            button_out.Text = "X";
+            button_out.UseVisualStyleBackColor = true;
+            button_out.Click += button_out_Click;
             // 
             // SignUpForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 27F);
+            AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(547, 769);
             Controls.Add(pn_FormDangKi);
@@ -309,6 +321,7 @@ namespace OrderPath_Client_App
         private DateTimePicker dt_Birth;
         private Label lb_role;
         private ComboBox cb_role;
+        private Button button_out;
     }
 
 }
