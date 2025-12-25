@@ -33,5 +33,27 @@ namespace OrderPath_Client_App
             return await res.Content.ReadFromJsonAsync<List<CustomerProductDTO>>();
         }
 
+        public async Task<List<CartItemDTO>> GetCartAsync()
+        {
+            var response = await _client.GetAsync("customer/cart");
+            response.EnsureSuccessStatusCode();
+            var json = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<List<CartItemDTO>>(json,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? new();
+        }
+
+        public async Task<bool> RemoveFromCartAsync(int productId)
+        {
+            var response = await _client.DeleteAsync($"customer/cart/remove/{productId}");
+            return response.IsSuccessStatusCode;
+        }
+
+        public  async Task<bool> CheckoutAsync()
+        {
+            var response = await _client.PostAsync("customer/order/checkout", null);
+            return response.IsSuccessStatusCode;
+        }
+
+
     }
 }
