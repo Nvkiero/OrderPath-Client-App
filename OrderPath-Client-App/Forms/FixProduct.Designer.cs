@@ -44,12 +44,14 @@
             txb_productName = new TextBox();
             label2 = new Label();
             txb_productID = new TextBox();
+            pbx_productImg = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)num_productQuantity).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbx_productImg).BeginInit();
             SuspendLayout();
             // 
             // num_productQuantity
             // 
-            num_productQuantity.Location = new Point(350, 299);
+            num_productQuantity.Location = new Point(470, 295);
             num_productQuantity.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
             num_productQuantity.Name = "num_productQuantity";
             num_productQuantity.Size = new Size(293, 31);
@@ -58,7 +60,7 @@
             // bttn_productFix
             // 
             bttn_productFix.Font = new Font("Segoe UI", 18F);
-            bttn_productFix.Location = new Point(333, 595);
+            bttn_productFix.Location = new Point(453, 591);
             bttn_productFix.Name = "bttn_productFix";
             bttn_productFix.Size = new Size(310, 63);
             bttn_productFix.TabIndex = 47;
@@ -69,7 +71,7 @@
             // label1
             // 
             label1.Font = new Font("Times New Roman", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(325, 29);
+            label1.Location = new Point(445, 25);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(397, 54);
@@ -78,14 +80,14 @@
             // 
             // txb_productCategory
             // 
-            txb_productCategory.Location = new Point(350, 421);
+            txb_productCategory.Location = new Point(470, 417);
             txb_productCategory.Name = "txb_productCategory";
             txb_productCategory.Size = new Size(293, 31);
             txb_productCategory.TabIndex = 45;
             // 
             // txb_productDescribtion
             // 
-            txb_productDescribtion.Location = new Point(350, 480);
+            txb_productDescribtion.Location = new Point(470, 476);
             txb_productDescribtion.Multiline = true;
             txb_productDescribtion.Name = "txb_productDescribtion";
             txb_productDescribtion.Size = new Size(520, 82);
@@ -93,14 +95,14 @@
             // 
             // txb_productImgUrl
             // 
-            txb_productImgUrl.Location = new Point(350, 358);
+            txb_productImgUrl.Location = new Point(470, 354);
             txb_productImgUrl.Name = "txb_productImgUrl";
             txb_productImgUrl.Size = new Size(293, 31);
             txb_productImgUrl.TabIndex = 43;
             // 
             // lb_Age
             // 
-            lb_Age.Location = new Point(115, 428);
+            lb_Age.Location = new Point(235, 424);
             lb_Age.Margin = new Padding(4, 0, 4, 0);
             lb_Age.Name = "lb_Age";
             lb_Age.Size = new Size(164, 30);
@@ -109,7 +111,7 @@
             // 
             // lb_phone
             // 
-            lb_phone.Location = new Point(115, 487);
+            lb_phone.Location = new Point(235, 483);
             lb_phone.Margin = new Padding(4, 0, 4, 0);
             lb_phone.Name = "lb_phone";
             lb_phone.Size = new Size(164, 30);
@@ -118,7 +120,7 @@
             // 
             // lb_usrname
             // 
-            lb_usrname.Location = new Point(115, 365);
+            lb_usrname.Location = new Point(235, 361);
             lb_usrname.Margin = new Padding(4, 0, 4, 0);
             lb_usrname.Name = "lb_usrname";
             lb_usrname.Size = new Size(164, 30);
@@ -127,7 +129,7 @@
             // 
             // lb_email
             // 
-            lb_email.Location = new Point(115, 305);
+            lb_email.Location = new Point(235, 301);
             lb_email.Margin = new Padding(4, 0, 4, 0);
             lb_email.Name = "lb_email";
             lb_email.Size = new Size(164, 30);
@@ -136,7 +138,7 @@
             // 
             // lb_ngaySinh
             // 
-            lb_ngaySinh.Location = new Point(115, 245);
+            lb_ngaySinh.Location = new Point(235, 241);
             lb_ngaySinh.Margin = new Padding(4, 0, 4, 0);
             lb_ngaySinh.Name = "lb_ngaySinh";
             lb_ngaySinh.Size = new Size(164, 30);
@@ -146,7 +148,7 @@
             // lb_Fullname
             // 
             lb_Fullname.Font = new Font("Microsoft Sans Serif", 8.25F);
-            lb_Fullname.Location = new Point(115, 185);
+            lb_Fullname.Location = new Point(235, 181);
             lb_Fullname.Margin = new Padding(4, 0, 4, 0);
             lb_Fullname.Name = "lb_Fullname";
             lb_Fullname.Size = new Size(164, 30);
@@ -155,14 +157,14 @@
             // 
             // txb_productPrice
             // 
-            txb_productPrice.Location = new Point(350, 242);
+            txb_productPrice.Location = new Point(470, 238);
             txb_productPrice.Name = "txb_productPrice";
             txb_productPrice.Size = new Size(293, 31);
             txb_productPrice.TabIndex = 42;
             // 
             // txb_productName
             // 
-            txb_productName.Location = new Point(350, 178);
+            txb_productName.Location = new Point(470, 174);
             txb_productName.Name = "txb_productName";
             txb_productName.Size = new Size(293, 31);
             txb_productName.TabIndex = 41;
@@ -170,7 +172,7 @@
             // label2
             // 
             label2.Font = new Font("Microsoft Sans Serif", 8.25F);
-            label2.Location = new Point(115, 132);
+            label2.Location = new Point(235, 128);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(164, 30);
@@ -179,16 +181,26 @@
             // 
             // txb_productID
             // 
-            txb_productID.Location = new Point(350, 125);
+            txb_productID.Location = new Point(470, 121);
             txb_productID.Name = "txb_productID";
             txb_productID.Size = new Size(293, 31);
             txb_productID.TabIndex = 50;
+            // 
+            // pbx_productImg
+            // 
+            pbx_productImg.ImeMode = ImeMode.NoControl;
+            pbx_productImg.Location = new Point(831, 121);
+            pbx_productImg.Name = "pbx_productImg";
+            pbx_productImg.Size = new Size(159, 178);
+            pbx_productImg.TabIndex = 51;
+            pbx_productImg.TabStop = false;
             // 
             // FixProduct
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(963, 700);
+            ClientSize = new Size(1183, 702);
+            Controls.Add(pbx_productImg);
             Controls.Add(label2);
             Controls.Add(txb_productID);
             Controls.Add(num_productQuantity);
@@ -208,6 +220,7 @@
             Name = "FixProduct";
             Text = "FixProduct";
             ((System.ComponentModel.ISupportInitialize)num_productQuantity).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbx_productImg).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -230,5 +243,6 @@
         private TextBox txb_productName;
         private Label label2;
         private TextBox txb_productID;
+        private PictureBox pbx_productImg;
     }
 }
