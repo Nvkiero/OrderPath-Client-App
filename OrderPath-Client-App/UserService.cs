@@ -100,10 +100,6 @@ namespace OrderPath_Client_App
         // Đổi mật khẩu cho người dùng đã đăng nhập
         public async Task<string> ChangePasswordAsync(ChangePassword model, string token)
         {
-            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-        public async Task<string> ChangePasswordAsync(ChangePassword model, string token)
-        {
             SetToken(token);
 
             var res = await _client.PutAsJsonAsync("auth/change-password", model);
