@@ -2,13 +2,13 @@
 using OrderPath_Client_App.Data;
 using OrderPath_Client_App.Data.Seller.QuanLySanPham;
 using OrderPath_Client_App.Forms.Sellers;
-using OrderPath_Client_App.Forms.Sellers.QuanLyDonHang;
 using OrderPath_Client_App.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Windows.Forms;
 
 namespace OrderPath_Client_App.Forms
@@ -257,9 +257,9 @@ namespace OrderPath_Client_App.Forms
         }
 
         // Nút Xác nhận đơn hàng
-        private void bttn_guiConfOrd_Click(object sender, EventArgs e)
+        // Nhớ thêm using System.Text; nếu báo lỗi Encoding
+        private async void bttn_guiConfOrd_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra đã chọn dòng nào chưa
             if (dgv_ordList.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn đơn hàng cần xác nhận!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -268,26 +268,46 @@ namespace OrderPath_Client_App.Forms
 
             try
             {
-                // 2. Lấy ID đơn hàng từ cột đầu tiên (Index 0)
-                // Lưu ý: Đảm bảo cột 0 của chứa OrderId
+                // 1. Lấy ID đơn hàng
                 int orderId = int.Parse(dgv_ordList.SelectedRows[0].Cells[0].Value.ToString());
 
-                // 3. Mở form ConfirmOrder và truyền ID sang
-                ConfirmOrder confOrd = new ConfirmOrder();
-                confOrd.SetOrderId(orderId); 
-                confOrd.ShowDialog();
+                // 2. Hỏi xác nhận
+                DialogResult confirm = MessageBox.Show(
+                    $"Bạn có muốn xác nhận đơn hàng #{orderId} để bắt đầu giao hàng không?",
+                    "Duyệt đơn hàng",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
 
-                // 4. Load lại danh sách sau khi đóng form con để thấy trạng thái mới
-                bttn_guiGetOrdList_Click(null, null);
+                if (confirm == DialogResult.Yes)
+                {
+                    // 3. Tạo dữ liệu gửi đi (Status = "Confirmed" hoặc "Shipping" tùy quy ước của bạn)
+                    var bodyData = new { Status = "Confirmed" };
+                    string jsonBody = JsonConvert.SerializeObject(bodyData);
+                    var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+                    // 4. Gọi API Cập nhật trạng thái
+                    var response = await ApiClient.Client.PutAsync($"seller/orders/{orderId}/status", content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Đã duyệt đơn hàng thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        bttn_guiGetOrdList_Click(null, null); // Load lại bảng
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi: " + response.ReasonPhrase, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi hệ thống: " + ex.Message, "Lỗi!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         // Nút Hủy đơn hàng
-        private void bttn_guiDelOrd_Click(object sender, EventArgs e)
+        private async void bttn_guiDelOrd_Click(object sender, EventArgs e)
         {
             if (dgv_ordList.SelectedRows.Count == 0)
             {
@@ -297,17 +317,41 @@ namespace OrderPath_Client_App.Forms
 
             try
             {
+                // 1. Lấy ID
                 int orderId = int.Parse(dgv_ordList.SelectedRows[0].Cells[0].Value.ToString());
 
-                DeleteOrder delOrd = new DeleteOrder();
-                delOrd.SetOrderId(orderId); 
-                delOrd.ShowDialog();
+                // 2. Hỏi xác nhận kỹ hơn (vì hủy là mất doanh thu)
+                DialogResult confirm = MessageBox.Show(
+                    $"Bạn có chắc chắn muốn HỦY đơn hàng #{orderId} không?\nHành động này không thể hoàn tác!",
+                    "Xác nhận hủy",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning // Icon cảnh báo
+                );
 
-                bttn_guiGetOrdList_Click(null, null);
+                if (confirm == DialogResult.Yes)
+                {
+                    // 3. Gửi trạng thái "Cancelled"
+                    var bodyData = new { Status = "Cancelled" };
+                    string jsonBody = JsonConvert.SerializeObject(bodyData);
+                    var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+                    // 4. Gọi API
+                    var response = await ApiClient.Client.PutAsync($"seller/orders/{orderId}/status", content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Đã hủy đơn hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        bttn_guiGetOrdList_Click(null, null); // Load lại bảng
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi: " + response.ReasonPhrase, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi hệ thống: " + ex.Message, "Lỗi!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -341,6 +385,39 @@ namespace OrderPath_Client_App.Forms
             {
                 MessageBox.Show("Lỗi hiển thị chi tiết: " + ex.Message, "Lỗi!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // Hàm hỗ trợ Resize ảnh giữ nguyên tỷ lệ (Zoom fit)
+        private Image ResizeImageKeepAspectRatio(Image img, int maxWidth, int maxHeight)
+        {
+            // 1. Tính toán tỷ lệ thu nhỏ
+            double ratioX = (double)maxWidth / img.Width;
+            double ratioY = (double)maxHeight / img.Height;
+            double ratio = Math.Min(ratioX, ratioY); // Lấy tỷ lệ nhỏ hơn để ảnh nằm trọn trong khung
+
+            // 2. Tính kích thước mới
+            int newWidth = (int)(img.Width * ratio);
+            int newHeight = (int)(img.Height * ratio);
+
+            // 3. Tạo khung ảnh mới (Background trong suốt)
+            Bitmap newImage = new Bitmap(maxWidth, maxHeight);
+
+            using (Graphics g = Graphics.FromImage(newImage))
+            {
+                // Cài đặt chất lượng ảnh cao nhất
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+
+                // 4. Vẽ ảnh vào giữa khung
+                int posX = (maxWidth - newWidth) / 2;
+                int posY = (maxHeight - newHeight) / 2;
+
+                g.DrawImage(img, posX, posY, newWidth, newHeight);
+            }
+
+            return newImage;
         }
 
         private void dgv_productList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) { }

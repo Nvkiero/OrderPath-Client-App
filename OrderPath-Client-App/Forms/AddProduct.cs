@@ -47,7 +47,6 @@ namespace OrderPath_Client_App.Forms.Sellers
 
                 // 4. Gửi lên Server
                 var response = await ApiClient.Client.PostAsJsonAsync("seller/products", newProduct);
-                MessageBox.Show(response.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Thêm sản phẩm thành công!", "Thành công!", MessageBoxButtons.OK, MessageBoxIcon.Information);
