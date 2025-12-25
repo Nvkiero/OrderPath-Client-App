@@ -11,7 +11,7 @@ namespace OrderPath_Client_App.Data
         static ApiClient()
         {
             Client = new HttpClient();
-            Client.BaseAddress = new Uri("http://localhost:5275/");
+            Client.BaseAddress = new Uri("http://localhost:5000/");
         }
     }
 }
