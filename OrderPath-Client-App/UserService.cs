@@ -17,7 +17,7 @@ namespace OrderPath_Client_App
             _client = ApiClient.Client;
         }
 
-        // Helper: Hàm này để gắn Token vào mỗi request
+        //Helper: Hàm này để gắn Token vào mỗi request
         private void SetToken(string token)
         {
             if (!string.IsNullOrEmpty(token))
@@ -27,7 +27,7 @@ namespace OrderPath_Client_App
             }
         }
 
-        // 1. GET: Lấy thông tin cá nhân (Cần Token)
+         //1. GET: Lấy thông tin cá nhân(Cần Token)
         public async Task<UserResponse?> GetMyProfile(string token)
         {
             SetToken(token); // Gắn token
@@ -43,14 +43,14 @@ namespace OrderPath_Client_App
         }
 
         // 2. PUT: Cập nhật thông tin (Cần Token)
-        public async Task<bool> UpdateProfile(string token, UpdateUserDTO dto)
-        {
-            SetToken(token); // Gắn token
+         public async Task<bool> UpdateProfile(string token, UpdateUserDTO dto)
+         {
+             SetToken(token); // Gắn token
 
-            // Gọi đúng endpoint server: users/me (không cần truyền ID vì server tự lấy từ token)
-            var res = await _client.PutAsJsonAsync("users/me", dto);
-            return res.IsSuccessStatusCode;
-        }
+             // Gọi đúng endpoint server: users/me (không cần truyền ID vì server tự lấy từ token)
+             var res = await _client.PutAsJsonAsync("users/me", dto);
+             return res.IsSuccessStatusCode;
+         }
         public async Task<RegisterResponse?> RegisterUser(UserRegister user)
         {
             var response = await _client.PostAsJsonAsync("auth/register", user);
@@ -76,13 +76,13 @@ namespace OrderPath_Client_App
                 throw new Exception(
                     JsonDocument.Parse(raw).RootElement.GetProperty("message").GetString()
                 );
-
             return JsonSerializer.Deserialize<LoginResponse>(
                 raw,
                 new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
             );
         }
 
+        //Gửi OTP đến email người dùng
         public async Task<bool> SendOtpAsync(string email)
         {
             var res = await _client.PostAsJsonAsync("auth/send-otp", new SendOtpRequest { Email = email }
@@ -97,6 +97,10 @@ namespace OrderPath_Client_App
             return JsonDocument.Parse(json)
                 .RootElement.GetProperty("message").GetString()!;
         }
+        // Đổi mật khẩu cho người dùng đã đăng nhập
+        public async Task<string> ChangePasswordAsync(ChangePassword model, string token)
+        {
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
         public async Task<string> ChangePasswordAsync(ChangePassword model, string token)
         {
@@ -130,8 +134,6 @@ namespace OrderPath_Client_App
             var res = await _client.PutAsJsonAsync($"users/{userId}", dto);
             return res.IsSuccessStatusCode;
         }
-
-
     }
 }
     
