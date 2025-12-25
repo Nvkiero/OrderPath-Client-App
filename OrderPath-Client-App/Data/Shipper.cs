@@ -9,7 +9,7 @@ namespace OrderPath_Client_App.Data
     public class ShipperProfileResponse
     {
         public int ShipperId { get; set; }
-        public string CompanyName { get; set; }
+        public string Username { get; set; }
         public string Phone { get; set; }
         public string VehicleType { get; set; }
         public int TotalDeliveries { get; set; }
@@ -19,7 +19,7 @@ namespace OrderPath_Client_App.Data
     {
         public int OrderId { get; set; }
         public string CustomerName { get; set; }
-        public string ShippingAddress { get; set; }
+        public string ShippingAddress { get; set; } = string.Empty
         public string ProductName { get; set; }
         public int Quantity { get; set; }
         public string CurrentStatus { get; set; }

@@ -12,9 +12,11 @@ namespace OrderPath_Client_App.Forms
     {
         private readonly int _currentShipperId;
 
-        public ShipperForm()
+        public ShipperForm(int UserID)
         {
             InitializeComponent();
+
+            _currentShipperId = UserID;
 
             this.Load += ShipperForm_Load;
         }
@@ -80,7 +82,7 @@ namespace OrderPath_Client_App.Forms
                 var response = await ApiClient.Client.GetFromJsonAsync<ShipperProfileResponse>($"shipper/{_currentShipperId}");
                 if (response != null)
                 {
-                    lblCompanyNameVal.Text = response.CompanyName;
+                    lblCompanyNameVal.Text = response.Username;
                     lblPhoneVal.Text = response.Phone;
                     lblVehicleVal.Text = response.VehicleType;
                     lblTotalDeliveriesVal.Text = response.TotalDeliveries.ToString();

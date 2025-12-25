@@ -156,7 +156,7 @@ namespace OrderPath_Client_App
                     //new SellerForm().Show();
                     break;
                 case "Shipper":
-                    new ShipperForm().Show();
+                    new ShipperForm(result.UserId).Show();
                     break;
             }
             this.Hide();
