@@ -1,0 +1,103 @@
+﻿using System.Windows.Forms;
+namespace OrderPath_Client_App 
+{
+    partial class FormMainUsers : Form
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            tb_ThanhTimKiem = new TextBox();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            bt_search = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            SuspendLayout();
+            // 
+            // tb_ThanhTimKiem
+            // 
+            tb_ThanhTimKiem.Location = new Point(12, 12);
+            tb_ThanhTimKiem.Name = "tb_ThanhTimKiem";
+            tb_ThanhTimKiem.Size = new Size(463, 40);
+            tb_ThanhTimKiem.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.ErrorImage = null;
+            pictureBox1.Image = Properties.Resources.lovepik_shopping_cart_icon_png_image_401363020_wh1200;
+            pictureBox1.InitialImage = null;
+            pictureBox1.Location = new Point(507, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(157, 111);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(716, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(150, 111);
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
+            // 
+            // bt_search
+            // 
+            bt_search.Location = new Point(12, 58);
+            bt_search.Name = "bt_search";
+            bt_search.Size = new Size(463, 65);
+            bt_search.TabIndex = 3;
+            bt_search.Text = "Tìm kiếm";
+            bt_search.UseVisualStyleBackColor = true;
+            // 
+            // FormMainUsers
+            // 
+            AutoScaleDimensions = new SizeF(15F, 33F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(878, 760);
+            Controls.Add(bt_search);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            Controls.Add(tb_ThanhTimKiem);
+            Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(4);
+            Name = "FormMainUsers";
+            Text = "FormMainUsers";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private TextBox tb_ThanhTimKiem;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Button bt_search;
+    }
+}
