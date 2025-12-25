@@ -309,43 +309,44 @@ namespace OrderPath_Client_App.Forms
         // Nút Hủy đơn hàng
         private async void bttn_guiDelOrd_Click(object sender, EventArgs e)
         {
+            // 1. Kiểm tra chọn dòng
             if (dgv_ordList.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn đơn hàng cần hủy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn đơn hàng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                // 1. Lấy ID
+                // 2. Lấy ID đơn hàng
                 int orderId = int.Parse(dgv_ordList.SelectedRows[0].Cells[0].Value.ToString());
 
-                // 2. Hỏi xác nhận kỹ hơn (vì hủy là mất doanh thu)
+                // 3. Hỏi xác nhận (Cảnh báo mạnh hơn vì xóa là mất luôn)
                 DialogResult confirm = MessageBox.Show(
-                    $"Bạn có chắc chắn muốn HỦY đơn hàng #{orderId} không?\nHành động này không thể hoàn tác!",
-                    "Xác nhận hủy",
+                    $"Bạn có chắc chắn muốn XÓA VĨNH VIỄN đơn hàng #{orderId}?\n" +
+                    "Dữ liệu sẽ bị mất hoàn toàn khỏi Cơ sở dữ liệu!",
+                    "Xác nhận xóa đơn hàng",
                     MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning // Icon cảnh báo
+                    MessageBoxIcon.Error // Icon đỏ cảnh báo
                 );
 
                 if (confirm == DialogResult.Yes)
                 {
-                    // 3. Gửi trạng thái "Cancelled"
-                    var bodyData = new { Status = "Cancelled" };
-                    string jsonBody = JsonConvert.SerializeObject(bodyData);
-                    var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
-
-                    // 4. Gọi API
-                    var response = await ApiClient.Client.PutAsync($"seller/orders/{orderId}/status", content);
+                    // 4. Gọi API DELETE (Lưu ý: Không cần tạo body JSON nữa)
+                    var response = await ApiClient.Client.DeleteAsync($"seller/orders/{orderId}");
 
                     if (response.IsSuccessStatusCode)
                     {
-                        MessageBox.Show("Đã hủy đơn hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        bttn_guiGetOrdList_Click(null, null); // Load lại bảng
+                        MessageBox.Show("Đã xóa đơn hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // 5. Load lại bảng để dòng đó biến mất khỏi DataGridView
+                        bttn_guiGetOrdList_Click(null, null);
                     }
                     else
                     {
-                        MessageBox.Show("Lỗi: " + response.ReasonPhrase, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        // Đọc lỗi từ Server gửi về (nếu có)
+                        string errorMsg = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Không thể xóa. Lỗi từ Server:\n{errorMsg}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -385,39 +386,6 @@ namespace OrderPath_Client_App.Forms
             {
                 MessageBox.Show("Lỗi hiển thị chi tiết: " + ex.Message, "Lỗi!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        // Hàm hỗ trợ Resize ảnh giữ nguyên tỷ lệ (Zoom fit)
-        private Image ResizeImageKeepAspectRatio(Image img, int maxWidth, int maxHeight)
-        {
-            // 1. Tính toán tỷ lệ thu nhỏ
-            double ratioX = (double)maxWidth / img.Width;
-            double ratioY = (double)maxHeight / img.Height;
-            double ratio = Math.Min(ratioX, ratioY); // Lấy tỷ lệ nhỏ hơn để ảnh nằm trọn trong khung
-
-            // 2. Tính kích thước mới
-            int newWidth = (int)(img.Width * ratio);
-            int newHeight = (int)(img.Height * ratio);
-
-            // 3. Tạo khung ảnh mới (Background trong suốt)
-            Bitmap newImage = new Bitmap(maxWidth, maxHeight);
-
-            using (Graphics g = Graphics.FromImage(newImage))
-            {
-                // Cài đặt chất lượng ảnh cao nhất
-                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-                g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-
-                // 4. Vẽ ảnh vào giữa khung
-                int posX = (maxWidth - newWidth) / 2;
-                int posY = (maxHeight - newHeight) / 2;
-
-                g.DrawImage(img, posX, posY, newWidth, newHeight);
-            }
-
-            return newImage;
         }
 
         private void dgv_productList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) { }

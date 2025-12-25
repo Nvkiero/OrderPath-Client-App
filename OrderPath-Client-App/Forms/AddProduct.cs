@@ -68,16 +68,19 @@ namespace OrderPath_Client_App.Forms.Sellers
         private void btn_browseImg_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            // Chỉ lọc lấy file ảnh
+            // Lọc các loại file ảnh
             open.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
             open.Title = "Chọn ảnh sản phẩm";
 
             if (open.ShowDialog() == DialogResult.OK)
             {
+                // Cài đặt chế độ hiển thị ảnh
+                pbx_productImg.SizeMode = PictureBoxSizeMode.Zoom;
+
                 // 1. Hiển thị ảnh lên PictureBox để xem trước
                 pbx_productImg.Image = Image.FromFile(open.FileName);
 
-                // 2. Gán đường dẫn file vào TextBox (để lát nữa gửi lên server)
+                // 2. Gán đường dẫn file vào TextBox
                 txb_productImgUrl.Text = open.FileName;
             }
         }
