@@ -70,9 +70,36 @@ namespace OrderPath_Client_App.Forms
 
         private void bttn_guiDelPro_Click(object sender, EventArgs e)
         {
-            DeleteProduct delPro = new DeleteProduct();
-            delPro.ShowDialog();
-            bttn_guiGetProList_Click(null, null);
+            // 1. Kiểm tra xem người dùng đã chọn dòng nào chưa
+            if (dgv_productList.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // 2. Lấy ID từ dòng đang chọn (Cột đầu tiên - Index 0)
+                DataGridViewRow row = dgv_productList.SelectedRows[0];
+
+                // Kiểm tra null để tránh lỗi
+                if (row.Cells[0].Value == null) return;
+
+                int id = int.Parse(row.Cells[0].Value.ToString());
+
+                // 3. Khởi tạo form Xóa và  truyền ID
+                DeleteProduct delPro = new DeleteProduct();
+                delPro.SetProductId(id);
+                // 4. Hiện form lên
+                delPro.ShowDialog();
+
+                // 5. Sau khi xóa xong (đóng form con), tải lại danh sách
+                bttn_guiGetProList_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi mở form xóa: " + ex.Message, "Lỗi!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void bttn_guiFixPro_Click(object sender, EventArgs e)

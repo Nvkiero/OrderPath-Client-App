@@ -12,6 +12,17 @@ namespace OrderPath_Client_App.Forms.Sellers
             InitializeComponent();
         }
 
+
+        public void SetProductId(int id)
+        {
+            // Giả sử tên textbox nhập ID của bạn là txb_deleteID
+            // Nếu tên khác thì bạn đổi lại cho đúng (ví dụ: txtId, txbId...)
+            if (Controls.ContainsKey("txb_deleteID"))
+            {
+                Controls["txb_deleteID"].Text = id.ToString();
+                Controls["txb_deleteID"].Enabled = false; // Khóa lại không cho sửa
+            }
+        }
         private void txb_productName_TextChanged(object sender, EventArgs e) { }
 
         private async void bttn_productDelete_Click(object sender, EventArgs e)
