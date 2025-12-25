@@ -82,9 +82,9 @@ namespace OrderPath_Client_App.Forms
                 var response = await ApiClient.Client.GetFromJsonAsync<ShipperProfileResponse>($"shipper/{_currentShipperId}");
                 if (response != null)
                 {
-                    lblCompanyNameVal.Text = response.CompanyName;
+                    lblCompanyNameVal.Text = response.Username;
                     lblPhoneVal.Text = response.Phone;
-                    lblVehicleVal.Text = response.VehicleType;
+                    lblVehicleVal.Text = response.Vehicle;
                     lblTotalDeliveriesVal.Text = response.TotalDeliveries.ToString();
                 }
             }
