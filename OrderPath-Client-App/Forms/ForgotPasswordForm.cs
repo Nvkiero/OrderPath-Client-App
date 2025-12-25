@@ -1,12 +1,5 @@
 ﻿using OrderPath_Client_App.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OrderPath_Client_App.Forms
@@ -14,6 +7,7 @@ namespace OrderPath_Client_App.Forms
     public partial class ForgotPasswordForm : Form
     {
         private readonly UserService _userService = new UserService();
+        private bool showNewPass = false;
 
         public ForgotPasswordForm()
         {
@@ -28,32 +22,64 @@ namespace OrderPath_Client_App.Forms
                 return;
             }
 
-            bool success = await _userService.SendOtpAsync(txtEmail.Text);
+            try
+            {
+                bool success = await _userService.SendOtpAsync(txtEmail.Text);
 
-            if (success)
-                MessageBox.Show("OTP đã được gửi (check console server)");
-            else
-                MessageBox.Show("Gửi OTP thất bại");
+                MessageBox.Show(
+                    success ? "OTP đã được gửi, vui lòng kiểm tra email"
+                            : "Gửi OTP thất bại"
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi gửi OTP: " + ex.Message);
+            }
         }
 
         private async void btnConfirmnNewPass_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtEmail.Text) ||
+                string.IsNullOrWhiteSpace(txtOTP.Text) ||
+                string.IsNullOrWhiteSpace(txtNewPassword.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ Email, OTP và mật khẩu mới");
+                return;
+            }
+
+            if (txtNewPassword.Text.Length < 6)
+            {
+                MessageBox.Show("Mật khẩu mới phải ít nhất 6 ký tự");
+                return;
+            }
+
             var model = new ForgotPassword
             {
-                Email = txtEmail.Text,
-                OTP = txtOTP.Text,
+                Email = txtEmail.Text.Trim(),
+                OTP = txtOTP.Text.Trim(),
                 NewPassword = txtNewPassword.Text
             };
 
-            string result = await _userService.ForgotPasswordAsync(model);
-            MessageBox.Show(result);
+            try
+            {
+                string result = await _userService.ForgotPasswordAsync(model);
+                MessageBox.Show(result);
+
+                if (result.Contains("thành công"))
+                {
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đổi mật khẩu thất bại: " + ex.Message);
+            }
         }
 
         private void pbNewPass_Click(object sender, EventArgs e)
         {
-            bool flag = true;
-            flag = !flag;
-            txtNewPassword.UseSystemPasswordChar = flag;
+            showNewPass = !showNewPass;
+            txtNewPassword.UseSystemPasswordChar = !showNewPass;
         }
     }
 }
