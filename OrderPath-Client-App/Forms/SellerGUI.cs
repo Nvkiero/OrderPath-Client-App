@@ -68,9 +68,10 @@ namespace OrderPath_Client_App.Forms
             bttn_guiGetProList_Click(null, null);
         }
 
-        private void bttn_guiDelPro_Click(object sender, EventArgs e)
+        // Lưu ý: Phải có từ khóa 'async' ở đây
+        private async void bttn_guiDelPro_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra xem người dùng đã chọn dòng nào chưa
+            // 1. Kiểm tra xem đã chọn dòng nào chưa
             if (dgv_productList.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -79,26 +80,46 @@ namespace OrderPath_Client_App.Forms
 
             try
             {
-                // 2. Lấy ID từ dòng đang chọn (Cột đầu tiên - Index 0)
+                // 2. Lấy ID và Tên sản phẩm từ dòng đang chọn (để hiển thị thông báo cho rõ)
                 DataGridViewRow row = dgv_productList.SelectedRows[0];
 
-                // Kiểm tra null để tránh lỗi
-                if (row.Cells[0].Value == null) return;
+                if (row.Cells[0].Value == null) return; // Kiểm tra an toàn
 
                 int id = int.Parse(row.Cells[0].Value.ToString());
+                string productName = row.Cells[1].Value.ToString(); // Giả sử cột 1 là tên SP
 
-                // 3. Khởi tạo form Xóa và  truyền ID
-                DeleteProduct delPro = new DeleteProduct();
-                delPro.SetProductId(id);
-                // 4. Hiện form lên
-                delPro.ShowDialog();
+                // 3. Hiện hộp thoại Xác nhận (Yes/No)
+                DialogResult confirm = MessageBox.Show(
+                    $"Bạn có chắc chắn muốn xóa sản phẩm: {productName}?\nHành động này không thể hoàn tác!",
+                    "Xác nhận xóa",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
 
-                // 5. Sau khi xóa xong (đóng form con), tải lại danh sách
-                bttn_guiGetProList_Click(null, null);
+                // Nếu người dùng bấm Yes thì mới xóa
+                if (confirm == DialogResult.Yes)
+                {
+                    // 4. Gọi API Xóa trực tiếp
+                    var response = await ApiClient.Client.DeleteAsync($"seller/products/{id}");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Đã xóa sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // 5. Load lại danh sách để cập nhật DataGridView (Xóa dòng khỏi bảng)
+                        bttn_guiGetProList_Click(null, null);
+                    }
+                    else
+                    {
+                        // Đọc lỗi từ Server gửi về (nếu có)
+                        string errorMsg = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Không thể xóa. Lỗi từ Server:\n{errorMsg}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi mở form xóa: " + ex.Message, "Lỗi!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi hệ thống: " + ex.Message, "Lỗi!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
