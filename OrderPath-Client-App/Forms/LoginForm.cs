@@ -160,8 +160,8 @@ namespace OrderPath_Client_App
                 case "Customer":
                     new FormMainUsers().Show();
                     break;
-                case "Shop":
-                    //new SellerForm().Show();
+                case "Seller":
+                    new SellerGUI().Show();
                     break;
                 case "Shipper":
                     new ShipperForm(result.UserId).Show();

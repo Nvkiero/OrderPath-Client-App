@@ -41,10 +41,10 @@ namespace OrderPath_Client_App.Forms.Sellers
                 // Dùng ApiClient thay vì new HttpClient
                 // Token đã có sẵn trong header của ApiClient.Client
                 // URL chỉ cần phần đuôi
-                string url = $"seller/products/{id}/delete";
+                string url = $"seller/products/{id}";
 
                 HttpResponseMessage response = await ApiClient.Client.PutAsync(url, null);
-
+                MessageBox.Show(response.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Đã xóa sản phẩm thành công!", "Thành công!", MessageBoxButtons.OK, MessageBoxIcon.Information);
