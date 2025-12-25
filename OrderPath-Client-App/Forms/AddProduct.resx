@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="txb_productCategory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>448, 390</value>
+  </data>
+  <data name="txb_productCategory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 31</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txb_productCategory.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;txb_productCategory.Name" xml:space="preserve">
+    <value>txb_productCategory</value>
+  </data>
+  <data name="&gt;&gt;txb_productCategory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_productCategory.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txb_productCategory.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txb_productDescribtion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>448, 449</value>
+  </data>
+  <data name="txb_productDescribtion.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txb_productDescribtion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 85</value>
+  </data>
+  <data name="txb_productDescribtion.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;txb_productDescribtion.Name" xml:space="preserve">
+    <value>txb_productDescribtion</value>
+  </data>
+  <data name="&gt;&gt;txb_productDescribtion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_productDescribtion.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txb_productDescribtion.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txb_productImgUrl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>448, 327</value>
+  </data>
+  <data name="txb_productImgUrl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 31</value>
+  </data>
+  <data name="txb_productImgUrl.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;txb_productImgUrl.Name" xml:space="preserve">
+    <value>txb_productImgUrl</value>
+  </data>
+  <data name="&gt;&gt;txb_productImgUrl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_productImgUrl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txb_productImgUrl.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lb_Age.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 397</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lb_Age.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lb_Age.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 33</value>
+  </data>
+  <data name="lb_Age.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="lb_Age.Text" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="&gt;&gt;lb_Age.Name" xml:space="preserve">
+    <value>lb_Age</value>
+  </data>
+  <data name="&gt;&gt;lb_Age.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_Age.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lb_Age.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lb_phone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 456</value>
+  </data>
+  <data name="lb_phone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lb_phone.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 33</value>
+  </data>
+  <data name="lb_phone.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="lb_phone.Text" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="&gt;&gt;lb_phone.Name" xml:space="preserve">
+    <value>lb_phone</value>
+  </data>
+  <data name="&gt;&gt;lb_phone.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_phone.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lb_phone.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lb_usrname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 334</value>
+  </data>
+  <data name="lb_usrname.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lb_usrname.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 33</value>
+  </data>
+  <data name="lb_usrname.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="lb_usrname.Text" xml:space="preserve">
+    <value>Link ảnh</value>
+  </data>
+  <data name="&gt;&gt;lb_usrname.Name" xml:space="preserve">
+    <value>lb_usrname</value>
+  </data>
+  <data name="&gt;&gt;lb_usrname.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_usrname.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lb_usrname.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lb_email.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 274</value>
+  </data>
+  <data name="lb_email.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lb_email.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 33</value>
+  </data>
+  <data name="lb_email.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="lb_email.Text" xml:space="preserve">
+    <value>Tồn kho</value>
+  </data>
+  <data name="&gt;&gt;lb_email.Name" xml:space="preserve">
+    <value>lb_email</value>
+  </data>
+  <data name="&gt;&gt;lb_email.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_email.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lb_email.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="lb_ngaySinh.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 214</value>
+  </data>
+  <data name="lb_ngaySinh.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lb_ngaySinh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 33</value>
+  </data>
+  <data name="lb_ngaySinh.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="lb_ngaySinh.Text" xml:space="preserve">
+    <value>Giá</value>
+  </data>
+  <data name="&gt;&gt;lb_ngaySinh.Name" xml:space="preserve">
+    <value>lb_ngaySinh</value>
+  </data>
+  <data name="&gt;&gt;lb_ngaySinh.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_ngaySinh.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lb_ngaySinh.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="lb_Fullname.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="lb_Fullname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 154</value>
+  </data>
+  <data name="lb_Fullname.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lb_Fullname.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 33</value>
+  </data>
+  <data name="lb_Fullname.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="lb_Fullname.Text" xml:space="preserve">
+    <value>Tên sản phẩm</value>
+  </data>
+  <data name="&gt;&gt;lb_Fullname.Name" xml:space="preserve">
+    <value>lb_Fullname</value>
+  </data>
+  <data name="&gt;&gt;lb_Fullname.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_Fullname.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lb_Fullname.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="txb_productPrice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>448, 211</value>
+  </data>
+  <data name="txb_productPrice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 31</value>
+  </data>
+  <data name="txb_productPrice.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;txb_productPrice.Name" xml:space="preserve">
+    <value>txb_productPrice</value>
+  </data>
+  <data name="&gt;&gt;txb_productPrice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_productPrice.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txb_productPrice.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="txb_productName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>448, 147</value>
+  </data>
+  <data name="txb_productName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 31</value>
+  </data>
+  <data name="txb_productName.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;txb_productName.Name" xml:space="preserve">
+    <value>txb_productName</value>
+  </data>
+  <data name="&gt;&gt;txb_productName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txb_productName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txb_productName.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Times New Roman, 20pt, style=Bold</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>424, 25</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>397, 57</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>THÊM SẢN PHẨM</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="bttn_productAdd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="bttn_productAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>431, 564</value>
+  </data>
+  <data name="bttn_productAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 66</value>
+  </data>
+  <data name="bttn_productAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="bttn_productAdd.Text" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="&gt;&gt;bttn_productAdd.Name" xml:space="preserve">
+    <value>bttn_productAdd</value>
+  </data>
+  <data name="&gt;&gt;bttn_productAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bttn_productAdd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bttn_productAdd.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="num_productQuantity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>448, 268</value>
+  </data>
+  <data name="num_productQuantity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 31</value>
+  </data>
+  <data name="num_productQuantity.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="&gt;&gt;num_productQuantity.Name" xml:space="preserve">
+    <value>num_productQuantity</value>
+  </data>
+  <data name="&gt;&gt;num_productQuantity.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;num_productQuantity.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;num_productQuantity.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pbx_productImg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>793, 147</value>
+  </data>
+  <data name="pbx_productImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 178</value>
+  </data>
+  <data name="pbx_productImg.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="&gt;&gt;pbx_productImg.Name" xml:space="preserve">
+    <value>pbx_productImg</value>
+  </data>
+  <data name="&gt;&gt;pbx_productImg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbx_productImg.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbx_productImg.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_browseImg.Location" type="System.Drawing.Point, System.Drawing">
+    <value>732, 327</value>
+  </data>
+  <data name="btn_browseImg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 31</value>
+  </data>
+  <data name="btn_browseImg.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="btn_browseImg.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;btn_browseImg.Name" xml:space="preserve">
+    <value>btn_browseImg</value>
+  </data>
+  <data name="&gt;&gt;btn_browseImg.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_browseImg.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_browseImg.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>10, 25</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1135, 659</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>AddProduct</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AddProduct</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
