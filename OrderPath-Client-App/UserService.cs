@@ -1,11 +1,8 @@
 ﻿using OrderPath_Client_App.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
+using System.Net.Http;
+using System.Net.Http.Headers; // Quan trọng để add Bearer Token
 using System.Net.Http.Json;
-using System.Reflection.Metadata;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -20,6 +17,40 @@ namespace OrderPath_Client_App
             _client = ApiClient.Client;
         }
 
+        // Helper: Hàm này để gắn Token vào mỗi request
+        private void SetToken(string token)
+        {
+            if (!string.IsNullOrEmpty(token))
+            {
+                _client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", token);
+            }
+        }
+
+        // 1. GET: Lấy thông tin cá nhân (Cần Token)
+        public async Task<UserResponse?> GetMyProfile(string token)
+        {
+            SetToken(token); // Gắn token
+
+            // Gọi đúng endpoint server: users/profile
+            var res = await _client.GetAsync("users/profile");
+
+            if (!res.IsSuccessStatusCode) return null;
+
+            var json = await res.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<UserResponse>(json,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+
+        // 2. PUT: Cập nhật thông tin (Cần Token)
+        public async Task<bool> UpdateProfile(string token, UpdateUserDTO dto)
+        {
+            SetToken(token); // Gắn token
+
+            // Gọi đúng endpoint server: users/me (không cần truyền ID vì server tự lấy từ token)
+            var res = await _client.PutAsJsonAsync("users/me", dto);
+            return res.IsSuccessStatusCode;
+        }
         public async Task<RegisterResponse?> RegisterUser(UserRegister user)
         {
             var response = await _client.PostAsJsonAsync("auth/register", user);

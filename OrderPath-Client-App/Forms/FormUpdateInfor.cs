@@ -24,7 +24,7 @@ namespace OrderPath_Client_App.Forms
                 tb_age.Text = currentData.Age.ToString();
                 tb_address.Text = currentData.Address;
                 tb_NgaySinh.Text = currentData.Birth.ToString("yyyy-MM-dd");
-                //tb_Phone.Text = currentData.Phone; // Nếu UserResponse có field Phone
+                tb_Phone.Text = currentData.Phone; // Nếu UserResponse có field Phone
             }
         }
 
