@@ -36,6 +36,7 @@ namespace OrderPath_Client_App
             dgvProducts.Columns["Category"].HeaderText = "Loại";
 
             dgvProducts.Columns["Price"].DefaultCellStyle.Format = "N0";
+
         }
 
         private async void bt_search_Click_1(object sender, EventArgs e)
